@@ -1,0 +1,3093 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ee07ef4dfb80f365b6b9a9369c9edf23 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ee07ef4dfb80f365b6b9a9369c9edf23" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ee07ef4dfb80f365b6b9a9369c9edf23 = L.map(
+                "map_ee07ef4dfb80f365b6b9a9369c9edf23",
+                {
+                    center: [21.015581737509326, 105.83313320719513],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c22db22b96f4c1c245d1e00af52a973e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c22db22b96f4c1c245d1e00af52a973e.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+        function geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1a365d", "fillColor": "#2b6cb0", "fillOpacity": 0.22, "weight": 3};
+            }
+        }
+
+        function geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7 = L.geoJson(null, {
+                onEachFeature: geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_onEachFeature,
+            
+                style: geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_styler,
+            ...{
+}
+        });
+
+        function geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_add (data) {
+            geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7
+                .addData(data);
+        }
+            geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7_add({"bbox": [105.7496937, 20.9880746, 105.9169767, 21.0514202], "features": [{"bbox": [105.8316234, 21.005961, 105.8323411, 21.0066083], "geometry": {"coordinates": [[[105.8323289, 21.0060581], [105.8321344, 21.0065858], [105.8321217, 21.0065993], [105.8320959, 21.0066083], [105.8320612, 21.006607], [105.8320393, 21.0065978], [105.8319935, 21.0065623], [105.8316436, 21.0062439], [105.8316241, 21.0062151], [105.8316234, 21.0061887], [105.8316344, 21.0061586], [105.831674, 21.0061348], [105.8322822, 21.005961], [105.8323216, 21.0059739], [105.8323356, 21.0059897], [105.8323411, 21.0060211], [105.8323289, 21.0060581]]], "type": "Polygon"}, "id": "0", "properties": {"brand": "Vincom", "name": "Vincom Ph\u1ea1m Ng\u1ecdc Th\u1ea1ch", "operator": "Vingroup"}, "type": "Feature"}, {"bbox": [105.9157449, 21.0504354, 105.9169767, 21.0514202], "geometry": {"coordinates": [[[105.9157449, 21.0509713], [105.916682, 21.0514202], [105.9169767, 21.0508843], [105.9160396, 21.0504354], [105.9157449, 21.0509713]]], "type": "Polygon"}, "id": "1", "properties": {"brand": "Vincom", "name": "Vincom Plaza Long Bi\u00ean", "operator": "-"}, "type": "Feature"}, {"bbox": [105.7496937, 20.9880746, 105.7527357, 20.9907908], "geometry": {"coordinates": [[[105.7499928, 20.9880746], [105.7496937, 20.9889231], [105.7499148, 20.9889924], [105.7500678, 20.9892892], [105.7499149, 20.989358], [105.750266, 20.9900385], [105.7504903, 20.9899376], [105.7507149, 20.9903728], [105.750915, 20.9902828], [105.7524367, 20.9907908], [105.7527357, 20.9900099], [105.7513383, 20.9895433], [105.7506607, 20.9883074], [105.7499928, 20.9880746]]], "type": "Polygon"}, "id": "2", "properties": {"brand": "-", "name": "AEON Mall H\u00e0 \u0110\u00f4ng", "operator": "AEON"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["name", "brand", "operator"];
+    let aliases = ["Mall", "Brand", "Operator"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+            var geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7searchControl = new L.Control.Search({
+                layer: geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7,
+                
+                propertyName: 'name',
+                
+                collapsed: false,
+                textPlaceholder: 'Search mall name',
+                position:'topleft',
+            
+                marker: false,
+                moveToLocation: function(latlng, title, map) {
+                var zoom =  map.getBoundsZoom(latlng.layer.getBounds()) 
+                    map.flyTo(latlng, zoom); // access the zoom
+                }
+            
+                });
+                geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7searchControl.on('search:locationfound', function(e) {
+                    geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7.setStyle(function(feature){
+                        return feature.properties.style
+                    })
+                    
+                    if(e.layer._popup)
+                        e.layer.openPopup();
+                })
+                geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7searchControl.on('search:collapsed', function(e) {
+                        geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7.setStyle(function(feature){
+                            return feature.properties.style
+                    });
+                });
+            map_ee07ef4dfb80f365b6b9a9369c9edf23.addControl( geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7searchControl );
+
+        
+    
+            var feature_group_38f880d7941e3524523d5ea4cae83c9c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_ece2de45db6bd7cce73acc3e4137e23b = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_809f40db28a929057db2547d6186461b = L.circleMarker(
+                [20.988572763329664, 105.75024681155024],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_79f1c24269f95085c7b85acc648a8d2d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_62dde28373dd782e3670410aff7caeaf = $(`<div id="html_62dde28373dd782e3670410aff7caeaf" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-02 07:44:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_79f1c24269f95085c7b85acc648a8d2d.setContent(html_62dde28373dd782e3670410aff7caeaf);
+            
+        
+
+        circle_marker_809f40db28a929057db2547d6186461b.bindPopup(popup_79f1c24269f95085c7b85acc648a8d2d)
+        ;
+
+        
+    
+    
+            var circle_marker_95851cf8ca0837f92f2476d08599ca15 = L.circleMarker(
+                [21.050947562987258, 105.91612886570353],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_6897e100bddd92c160d503e3f87f3ec1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d5a16cd29a8d9e001a3b53a64de9ec40 = $(`<div id="html_d5a16cd29a8d9e001a3b53a64de9ec40" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 09:19:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_6897e100bddd92c160d503e3f87f3ec1.setContent(html_d5a16cd29a8d9e001a3b53a64de9ec40);
+            
+        
+
+        circle_marker_95851cf8ca0837f92f2476d08599ca15.bindPopup(popup_6897e100bddd92c160d503e3f87f3ec1)
+        ;
+
+        
+    
+    
+            var circle_marker_86e77ab0ce509822ea47d917967f6d85 = L.circleMarker(
+                [21.050617444667804, 105.9164183377221],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_ccebda7a85c4341e6cfddf83da1c81cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f334aea3217f4471ce2c19ff416fb580 = $(`<div id="html_f334aea3217f4471ce2c19ff416fb580" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-05 10:01:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_ccebda7a85c4341e6cfddf83da1c81cb.setContent(html_f334aea3217f4471ce2c19ff416fb580);
+            
+        
+
+        circle_marker_86e77ab0ce509822ea47d917967f6d85.bindPopup(popup_ccebda7a85c4341e6cfddf83da1c81cb)
+        ;
+
+        
+    
+    
+            var circle_marker_08fadc571928fbc8615c0ac988ca2ba1 = L.circleMarker(
+                [21.05070262452649, 105.91622367268545],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_dcc9d7d5a0e8d231e14b804fc72255bb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_40e968a8bafdbaad49bcea9b32e58260 = $(`<div id="html_40e968a8bafdbaad49bcea9b32e58260" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-04 08:13:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_dcc9d7d5a0e8d231e14b804fc72255bb.setContent(html_40e968a8bafdbaad49bcea9b32e58260);
+            
+        
+
+        circle_marker_08fadc571928fbc8615c0ac988ca2ba1.bindPopup(popup_dcc9d7d5a0e8d231e14b804fc72255bb)
+        ;
+
+        
+    
+    
+            var circle_marker_aa4f8d1ba8e66e75598bd0d9362f4225 = L.circleMarker(
+                [21.006191926428368, 105.83221818491032],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_856ba37c127a29ddda0eecd36ebd9bf1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc50893dedfc68557b1a5d54a67f3c36 = $(`<div id="html_dc50893dedfc68557b1a5d54a67f3c36" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-07 10:25:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_856ba37c127a29ddda0eecd36ebd9bf1.setContent(html_dc50893dedfc68557b1a5d54a67f3c36);
+            
+        
+
+        circle_marker_aa4f8d1ba8e66e75598bd0d9362f4225.bindPopup(popup_856ba37c127a29ddda0eecd36ebd9bf1)
+        ;
+
+        
+    
+    
+            var circle_marker_4c4face8290c5a2faa1ff3871540f02f = L.circleMarker(
+                [21.006312287174627, 105.8318250266976],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_a18077163d3874391eed2f676de8303f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd85b5f49532b7bfc985adfc8e81543f = $(`<div id="html_cd85b5f49532b7bfc985adfc8e81543f" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-02 05:31:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_a18077163d3874391eed2f676de8303f.setContent(html_cd85b5f49532b7bfc985adfc8e81543f);
+            
+        
+
+        circle_marker_4c4face8290c5a2faa1ff3871540f02f.bindPopup(popup_a18077163d3874391eed2f676de8303f)
+        ;
+
+        
+    
+    
+            var circle_marker_50350e254f44486ed49bb046ba1811eb = L.circleMarker(
+                [20.990054729269833, 105.75184396003999],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_cab1d762197f54ac2401aa8d5b4f867a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e1ddd7c700a5b3053ec7af253f2cbf41 = $(`<div id="html_e1ddd7c700a5b3053ec7af253f2cbf41" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-05 10:45:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_cab1d762197f54ac2401aa8d5b4f867a.setContent(html_e1ddd7c700a5b3053ec7af253f2cbf41);
+            
+        
+
+        circle_marker_50350e254f44486ed49bb046ba1811eb.bindPopup(popup_cab1d762197f54ac2401aa8d5b4f867a)
+        ;
+
+        
+    
+    
+            var circle_marker_367a4050e54ebe86b7c0e9cb9afc8eb8 = L.circleMarker(
+                [20.98851250926044, 105.75057512391976],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_30818b7d3d1394a30a538eff17551558 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b66ec8fdf050db81fc69002b9b2f118 = $(`<div id="html_3b66ec8fdf050db81fc69002b9b2f118" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 09:51:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_30818b7d3d1394a30a538eff17551558.setContent(html_3b66ec8fdf050db81fc69002b9b2f118);
+            
+        
+
+        circle_marker_367a4050e54ebe86b7c0e9cb9afc8eb8.bindPopup(popup_30818b7d3d1394a30a538eff17551558)
+        ;
+
+        
+    
+    
+            var circle_marker_00bac891432c2f135511cfa90ab74c1e = L.circleMarker(
+                [21.051293614389216, 105.91652512674727],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_ad3c7fa7e410584ca713292547db290b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f801b5dc750b9efe5d1ddd1af3ccdf2 = $(`<div id="html_6f801b5dc750b9efe5d1ddd1af3ccdf2" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-04 09:42:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_ad3c7fa7e410584ca713292547db290b.setContent(html_6f801b5dc750b9efe5d1ddd1af3ccdf2);
+            
+        
+
+        circle_marker_00bac891432c2f135511cfa90ab74c1e.bindPopup(popup_ad3c7fa7e410584ca713292547db290b)
+        ;
+
+        
+    
+    
+            var circle_marker_484c991e4e3895e568baa3eb9d2ae2bb = L.circleMarker(
+                [20.990143311199155, 105.75173833633521],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_98ffdf791f01c7d8cf685c5507a37869 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83836d88da22a9a1f89bd23260c5d8cb = $(`<div id="html_83836d88da22a9a1f89bd23260c5d8cb" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 10:50:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_98ffdf791f01c7d8cf685c5507a37869.setContent(html_83836d88da22a9a1f89bd23260c5d8cb);
+            
+        
+
+        circle_marker_484c991e4e3895e568baa3eb9d2ae2bb.bindPopup(popup_98ffdf791f01c7d8cf685c5507a37869)
+        ;
+
+        
+    
+    
+            var circle_marker_de792de9091112f34fb9b3b4bccb85e9 = L.circleMarker(
+                [20.989023123046564, 105.75072502862437],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_e849ae50b81e4f0da4583b1f96f11582 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c411629ec4e82efb389529758c2d4011 = $(`<div id="html_c411629ec4e82efb389529758c2d4011" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-07 08:29:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_e849ae50b81e4f0da4583b1f96f11582.setContent(html_c411629ec4e82efb389529758c2d4011);
+            
+        
+
+        circle_marker_de792de9091112f34fb9b3b4bccb85e9.bindPopup(popup_e849ae50b81e4f0da4583b1f96f11582)
+        ;
+
+        
+    
+    
+            var circle_marker_dc7b9f9a69226171135b780bbeeff9ba = L.circleMarker(
+                [20.99019289795766, 105.75239221690262],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_558b5ed9e87487aa9d9f91752fad7a65 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b636d5a5953b0e840edde94d9916f43 = $(`<div id="html_5b636d5a5953b0e840edde94d9916f43" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-07 10:37:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_558b5ed9e87487aa9d9f91752fad7a65.setContent(html_5b636d5a5953b0e840edde94d9916f43);
+            
+        
+
+        circle_marker_dc7b9f9a69226171135b780bbeeff9ba.bindPopup(popup_558b5ed9e87487aa9d9f91752fad7a65)
+        ;
+
+        
+    
+    
+            var circle_marker_0753b4082177a4f412373513508f81cb = L.circleMarker(
+                [21.04952526536621, 105.77029430857321],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_1e30e13bca7b23b1cb5b1e6c7145a1af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be23c36e19afcaf59d1281350b2ae50d = $(`<div id="html_be23c36e19afcaf59d1281350b2ae50d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-01 08:53:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_1e30e13bca7b23b1cb5b1e6c7145a1af.setContent(html_be23c36e19afcaf59d1281350b2ae50d);
+            
+        
+
+        circle_marker_0753b4082177a4f412373513508f81cb.bindPopup(popup_1e30e13bca7b23b1cb5b1e6c7145a1af)
+        ;
+
+        
+    
+    
+            var circle_marker_06d7b5702992862196f08bb431f2d034 = L.circleMarker(
+                [20.98558736312452, 105.89243584426951],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_9afba71d47bfbe7df26bbb3860113e63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8a8c659f908ff8176e2712c1da27f13d = $(`<div id="html_8a8c659f908ff8176e2712c1da27f13d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-08 06:17:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_9afba71d47bfbe7df26bbb3860113e63.setContent(html_8a8c659f908ff8176e2712c1da27f13d);
+            
+        
+
+        circle_marker_06d7b5702992862196f08bb431f2d034.bindPopup(popup_9afba71d47bfbe7df26bbb3860113e63)
+        ;
+
+        
+    
+    
+            var circle_marker_8463ae4ae2b756a572ee73ebd6ebddf9 = L.circleMarker(
+                [21.03524629050032, 105.88152257846006],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_074f3aa3f5a514e09fa0bd007f9cfebd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48e085d979295c0ee5cac712a3a69070 = $(`<div id="html_48e085d979295c0ee5cac712a3a69070" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-07 08:49:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_074f3aa3f5a514e09fa0bd007f9cfebd.setContent(html_48e085d979295c0ee5cac712a3a69070);
+            
+        
+
+        circle_marker_8463ae4ae2b756a572ee73ebd6ebddf9.bindPopup(popup_074f3aa3f5a514e09fa0bd007f9cfebd)
+        ;
+
+        
+    
+    
+            var circle_marker_6ce72e42af69e4688ac0c5fbb0973b9c = L.circleMarker(
+                [21.058367817289227, 105.78904859755961],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_4a53ab8b49d088441a037fae20a22d0f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17b1c4cdc9ef128b44287b1aca5939ef = $(`<div id="html_17b1c4cdc9ef128b44287b1aca5939ef" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 07:23:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_4a53ab8b49d088441a037fae20a22d0f.setContent(html_17b1c4cdc9ef128b44287b1aca5939ef);
+            
+        
+
+        circle_marker_6ce72e42af69e4688ac0c5fbb0973b9c.bindPopup(popup_4a53ab8b49d088441a037fae20a22d0f)
+        ;
+
+        
+    
+    
+            var circle_marker_ec794a316a74aac1e67af4a00901db58 = L.circleMarker(
+                [21.005523805038315, 105.9329728780441],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_c858fb373ed91ab66946c548e248a1e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_002b3c9a6fff897f62731869d84d1b6d = $(`<div id="html_002b3c9a6fff897f62731869d84d1b6d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-03 05:05:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_c858fb373ed91ab66946c548e248a1e4.setContent(html_002b3c9a6fff897f62731869d84d1b6d);
+            
+        
+
+        circle_marker_ec794a316a74aac1e67af4a00901db58.bindPopup(popup_c858fb373ed91ab66946c548e248a1e4)
+        ;
+
+        
+    
+    
+            var circle_marker_90c948460e716af5c4d6abb1e0c25bc0 = L.circleMarker(
+                [21.08924778438816, 105.75309132330577],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_010a180e88f9cb4d7cbcb4f11cf74aef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f237e295b8eda5318d69a1e306676737 = $(`<div id="html_f237e295b8eda5318d69a1e306676737" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-07 08:05:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_010a180e88f9cb4d7cbcb4f11cf74aef.setContent(html_f237e295b8eda5318d69a1e306676737);
+            
+        
+
+        circle_marker_90c948460e716af5c4d6abb1e0c25bc0.bindPopup(popup_010a180e88f9cb4d7cbcb4f11cf74aef)
+        ;
+
+        
+    
+    
+            var circle_marker_a98eab11fcf15bb27884f94245b67d21 = L.circleMarker(
+                [21.033520189368755, 105.78389854933722],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_3a60594229d99db8d3775bc2f31c736c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c457d4afa204b6721aefe87c0ef44dd7 = $(`<div id="html_c457d4afa204b6721aefe87c0ef44dd7" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-07 05:19:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_3a60594229d99db8d3775bc2f31c736c.setContent(html_c457d4afa204b6721aefe87c0ef44dd7);
+            
+        
+
+        circle_marker_a98eab11fcf15bb27884f94245b67d21.bindPopup(popup_3a60594229d99db8d3775bc2f31c736c)
+        ;
+
+        
+    
+    
+            var circle_marker_a776078ce8d5b3cc1d41a4a047def2fa = L.circleMarker(
+                [20.955602228312383, 105.75610004998781],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_42ef8b4cec54427a91e289656f5850e4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a0a2fa7334181e1a3fc8abf7156f2d6d = $(`<div id="html_a0a2fa7334181e1a3fc8abf7156f2d6d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 10:28:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_42ef8b4cec54427a91e289656f5850e4.setContent(html_a0a2fa7334181e1a3fc8abf7156f2d6d);
+            
+        
+
+        circle_marker_a776078ce8d5b3cc1d41a4a047def2fa.bindPopup(popup_42ef8b4cec54427a91e289656f5850e4)
+        ;
+
+        
+    
+    
+            var circle_marker_c26e2a0672031493a01caaa6d57a899d = L.circleMarker(
+                [21.00402859621169, 105.91452011213194],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_ad4c07c1080e33d1f7333ded97b8697e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ee4de09247cbeaee864eacc5ea187f4 = $(`<div id="html_2ee4de09247cbeaee864eacc5ea187f4" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 08:44:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_ad4c07c1080e33d1f7333ded97b8697e.setContent(html_2ee4de09247cbeaee864eacc5ea187f4);
+            
+        
+
+        circle_marker_c26e2a0672031493a01caaa6d57a899d.bindPopup(popup_ad4c07c1080e33d1f7333ded97b8697e)
+        ;
+
+        
+    
+    
+            var circle_marker_91b5e8745958f0cae18a305754a6c42f = L.circleMarker(
+                [20.998443470941186, 105.85326006966024],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_2c820f3c1dc2cbf9063f6de62ba24782 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b1c9cfbbd9975bc1dc07284e694eb3aa = $(`<div id="html_b1c9cfbbd9975bc1dc07284e694eb3aa" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 10:30:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_2c820f3c1dc2cbf9063f6de62ba24782.setContent(html_b1c9cfbbd9975bc1dc07284e694eb3aa);
+            
+        
+
+        circle_marker_91b5e8745958f0cae18a305754a6c42f.bindPopup(popup_2c820f3c1dc2cbf9063f6de62ba24782)
+        ;
+
+        
+    
+    
+            var circle_marker_dc69517d6c335d9eb459c604b52d1e00 = L.circleMarker(
+                [21.054396130914057, 105.91719602410244],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_8071505686750d9643c5537138b11e08 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5754a141e8692b415da97610926358ca = $(`<div id="html_5754a141e8692b415da97610926358ca" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-06 09:00:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_8071505686750d9643c5537138b11e08.setContent(html_5754a141e8692b415da97610926358ca);
+            
+        
+
+        circle_marker_dc69517d6c335d9eb459c604b52d1e00.bindPopup(popup_8071505686750d9643c5537138b11e08)
+        ;
+
+        
+    
+    
+            var circle_marker_999949736081e7985b5497a39293ad21 = L.circleMarker(
+                [20.975994148010628, 105.83179058888285],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_91a1b4f8966356e14d4aacd9c6b82df6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b43e344e5b676308a725e2fac7a7263e = $(`<div id="html_b43e344e5b676308a725e2fac7a7263e" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-02 10:44:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_91a1b4f8966356e14d4aacd9c6b82df6.setContent(html_b43e344e5b676308a725e2fac7a7263e);
+            
+        
+
+        circle_marker_999949736081e7985b5497a39293ad21.bindPopup(popup_91a1b4f8966356e14d4aacd9c6b82df6)
+        ;
+
+        
+    
+    
+            var circle_marker_45cab7bf6a4b24246904a9170df0d09d = L.circleMarker(
+                [21.05718938840501, 105.85984533294122],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_5719c76b13db7630cfd4863b987bb252 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ac7628ad62bb2f2de9120c0e88d3679e = $(`<div id="html_ac7628ad62bb2f2de9120c0e88d3679e" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 09:28:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_5719c76b13db7630cfd4863b987bb252.setContent(html_ac7628ad62bb2f2de9120c0e88d3679e);
+            
+        
+
+        circle_marker_45cab7bf6a4b24246904a9170df0d09d.bindPopup(popup_5719c76b13db7630cfd4863b987bb252)
+        ;
+
+        
+    
+    
+            var circle_marker_05a69faaff029297727bdfe3edafb590 = L.circleMarker(
+                [20.991990084541893, 105.88203947534355],
+                {"bubblingMouseEvents": true, "color": "#f59e0b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f59e0b", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_ece2de45db6bd7cce73acc3e4137e23b);
+        
+    
+        var popup_124a7509f7689514403c97f192f3cc7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0566f5f0106c98e263b2e3df9d8f01cd = $(`<div id="html_0566f5f0106c98e263b2e3df9d8f01cd" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 05:24:00<br>             <b>Time bin:</b> morning<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_124a7509f7689514403c97f192f3cc7b.setContent(html_0566f5f0106c98e263b2e3df9d8f01cd);
+            
+        
+
+        circle_marker_05a69faaff029297727bdfe3edafb590.bindPopup(popup_124a7509f7689514403c97f192f3cc7b)
+        ;
+
+        
+    
+    
+            marker_cluster_ece2de45db6bd7cce73acc3e4137e23b.addTo(feature_group_38f880d7941e3524523d5ea4cae83c9c);
+        
+    
+            feature_group_38f880d7941e3524523d5ea4cae83c9c.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+            var feature_group_dfc5a51115d32044c7860ff2b1d134be = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_4e0e689806ee6e2b9754bea537c2cde7 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_061d8b489e3b1f5a9d48d9ae1f583235 = L.circleMarker(
+                [21.006098447106343, 105.8322208440833],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_134af18875c6deac685b159e05b8b320 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_93364c27b42c8fa2127ec506fbfbbfb7 = $(`<div id="html_93364c27b42c8fa2127ec506fbfbbfb7" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-02 11:59:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_134af18875c6deac685b159e05b8b320.setContent(html_93364c27b42c8fa2127ec506fbfbbfb7);
+            
+        
+
+        circle_marker_061d8b489e3b1f5a9d48d9ae1f583235.bindPopup(popup_134af18875c6deac685b159e05b8b320)
+        ;
+
+        
+    
+    
+            var circle_marker_ac9ed7b9adec4c0b13d29c0f7accfdb6 = L.circleMarker(
+                [21.006324314729987, 105.83216941542939],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_84046d11532cefd98aa4dd46de3d03a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_005d4c9b68924172f92c774a04173d7d = $(`<div id="html_005d4c9b68924172f92c774a04173d7d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-02 11:34:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_84046d11532cefd98aa4dd46de3d03a5.setContent(html_005d4c9b68924172f92c774a04173d7d);
+            
+        
+
+        circle_marker_ac9ed7b9adec4c0b13d29c0f7accfdb6.bindPopup(popup_84046d11532cefd98aa4dd46de3d03a5)
+        ;
+
+        
+    
+    
+            var circle_marker_a9625d9dacacd684c3b24b421b8205da = L.circleMarker(
+                [21.0509216899033, 105.91669457737227],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_ff8587f1289625f2be988565dfada594 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cacdad4ce0b31f41bad156ae7f0e29f1 = $(`<div id="html_cacdad4ce0b31f41bad156ae7f0e29f1" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-06 11:48:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_ff8587f1289625f2be988565dfada594.setContent(html_cacdad4ce0b31f41bad156ae7f0e29f1);
+            
+        
+
+        circle_marker_a9625d9dacacd684c3b24b421b8205da.bindPopup(popup_ff8587f1289625f2be988565dfada594)
+        ;
+
+        
+    
+    
+            var circle_marker_7840111e49b703e82d13d74d868c96b4 = L.circleMarker(
+                [20.98883145952616, 105.7498502983613],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_8af9ed8b97122ce5e8d75ac712780329 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7061e9580a1657dc4045f3b800c2ed4e = $(`<div id="html_7061e9580a1657dc4045f3b800c2ed4e" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-07 11:10:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_8af9ed8b97122ce5e8d75ac712780329.setContent(html_7061e9580a1657dc4045f3b800c2ed4e);
+            
+        
+
+        circle_marker_7840111e49b703e82d13d74d868c96b4.bindPopup(popup_8af9ed8b97122ce5e8d75ac712780329)
+        ;
+
+        
+    
+    
+            var circle_marker_9cd03f1aaf0efe4d1b5babcfd91449aa = L.circleMarker(
+                [21.051318874184002, 105.91663913220523],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_3f0f6fbd64171455f4d87d8fe689c1b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15b332850efe6accbc2dbb7b12963aeb = $(`<div id="html_15b332850efe6accbc2dbb7b12963aeb" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-01 11:08:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_3f0f6fbd64171455f4d87d8fe689c1b7.setContent(html_15b332850efe6accbc2dbb7b12963aeb);
+            
+        
+
+        circle_marker_9cd03f1aaf0efe4d1b5babcfd91449aa.bindPopup(popup_3f0f6fbd64171455f4d87d8fe689c1b7)
+        ;
+
+        
+    
+    
+            var circle_marker_04095e8dcb678eb4d408f06f27b2a69b = L.circleMarker(
+                [21.077951418320104, 105.94272399541785],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_4ab96ed4ba269497538a81af822cbf04 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_891b491093eea366d05bba72b0ec65e3 = $(`<div id="html_891b491093eea366d05bba72b0ec65e3" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 11:15:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_4ab96ed4ba269497538a81af822cbf04.setContent(html_891b491093eea366d05bba72b0ec65e3);
+            
+        
+
+        circle_marker_04095e8dcb678eb4d408f06f27b2a69b.bindPopup(popup_4ab96ed4ba269497538a81af822cbf04)
+        ;
+
+        
+    
+    
+            var circle_marker_3d53a83ff2fee99632bc3939ebe370f2 = L.circleMarker(
+                [21.00069927352773, 105.92800106836351],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_72afdcc659709cb7b8c087658814be7a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_557bd005343a40dc54e5c337cea705fe = $(`<div id="html_557bd005343a40dc54e5c337cea705fe" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 11:14:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_72afdcc659709cb7b8c087658814be7a.setContent(html_557bd005343a40dc54e5c337cea705fe);
+            
+        
+
+        circle_marker_3d53a83ff2fee99632bc3939ebe370f2.bindPopup(popup_72afdcc659709cb7b8c087658814be7a)
+        ;
+
+        
+    
+    
+            var circle_marker_87cad7b67e8aa714d636560095f3b8c3 = L.circleMarker(
+                [21.038624989085353, 105.80730825042566],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_8998cff644794f20d17c0ebb6d32e156 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_799f6eed05d5c956fd094045d83309ba = $(`<div id="html_799f6eed05d5c956fd094045d83309ba" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-03 11:59:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_8998cff644794f20d17c0ebb6d32e156.setContent(html_799f6eed05d5c956fd094045d83309ba);
+            
+        
+
+        circle_marker_87cad7b67e8aa714d636560095f3b8c3.bindPopup(popup_8998cff644794f20d17c0ebb6d32e156)
+        ;
+
+        
+    
+    
+            var circle_marker_3ff78b0c664a1077df089fdc15b7bbd8 = L.circleMarker(
+                [21.096377811919382, 105.89521826674454],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_d858f6f18c3e89e74a9b92ca67f177c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_431d1059b233884fe8a19acc1c84b979 = $(`<div id="html_431d1059b233884fe8a19acc1c84b979" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 11:56:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_d858f6f18c3e89e74a9b92ca67f177c2.setContent(html_431d1059b233884fe8a19acc1c84b979);
+            
+        
+
+        circle_marker_3ff78b0c664a1077df089fdc15b7bbd8.bindPopup(popup_d858f6f18c3e89e74a9b92ca67f177c2)
+        ;
+
+        
+    
+    
+            var circle_marker_f04b7ba8bfc337764c6b9dc7a94679e4 = L.circleMarker(
+                [20.96176845720134, 105.83779428414113],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_2f39e95805fb8cc9912679bf466e3d97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb36ce084ba515fad29fa6ad37c2ce22 = $(`<div id="html_eb36ce084ba515fad29fa6ad37c2ce22" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-04 12:03:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_2f39e95805fb8cc9912679bf466e3d97.setContent(html_eb36ce084ba515fad29fa6ad37c2ce22);
+            
+        
+
+        circle_marker_f04b7ba8bfc337764c6b9dc7a94679e4.bindPopup(popup_2f39e95805fb8cc9912679bf466e3d97)
+        ;
+
+        
+    
+    
+            var circle_marker_68c8bf23708d429880e0db5f39e4a098 = L.circleMarker(
+                [20.98753643472469, 105.78128740853421],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_4caf7d1e2b2b1eb03d1bbfc29862583c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b48089d2a522250853a6168bad17227c = $(`<div id="html_b48089d2a522250853a6168bad17227c" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-07 11:36:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_4caf7d1e2b2b1eb03d1bbfc29862583c.setContent(html_b48089d2a522250853a6168bad17227c);
+            
+        
+
+        circle_marker_68c8bf23708d429880e0db5f39e4a098.bindPopup(popup_4caf7d1e2b2b1eb03d1bbfc29862583c)
+        ;
+
+        
+    
+    
+            var circle_marker_6b876ed203540b6790b8ceb3f5cbec43 = L.circleMarker(
+                [20.956109320347846, 105.75920052840435],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_3d8ef29b440720dbd7d75327948e0bc2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9b945ce99cc5fa5cd4ef274dd025b14 = $(`<div id="html_f9b945ce99cc5fa5cd4ef274dd025b14" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-06 12:14:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_3d8ef29b440720dbd7d75327948e0bc2.setContent(html_f9b945ce99cc5fa5cd4ef274dd025b14);
+            
+        
+
+        circle_marker_6b876ed203540b6790b8ceb3f5cbec43.bindPopup(popup_3d8ef29b440720dbd7d75327948e0bc2)
+        ;
+
+        
+    
+    
+            var circle_marker_98e449d916cc185d7d85f0ea21d575eb = L.circleMarker(
+                [21.021020765617084, 105.84832317502337],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563eb", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_4e0e689806ee6e2b9754bea537c2cde7);
+        
+    
+        var popup_9d3a8da1aab695c2e579f127fd203b76 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d686031914efccaa6f970cd60c5d3e6b = $(`<div id="html_d686031914efccaa6f970cd60c5d3e6b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 11:51:00<br>             <b>Time bin:</b> noon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_9d3a8da1aab695c2e579f127fd203b76.setContent(html_d686031914efccaa6f970cd60c5d3e6b);
+            
+        
+
+        circle_marker_98e449d916cc185d7d85f0ea21d575eb.bindPopup(popup_9d3a8da1aab695c2e579f127fd203b76)
+        ;
+
+        
+    
+    
+            marker_cluster_4e0e689806ee6e2b9754bea537c2cde7.addTo(feature_group_dfc5a51115d32044c7860ff2b1d134be);
+        
+    
+            feature_group_dfc5a51115d32044c7860ff2b1d134be.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+            var feature_group_f4829e6a8d50a2d3ec5cb17c343dbe88 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_fb9d864e81222e094d26d2745c265f25 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f1f16241f6bb076577c7ffb693eea213 = L.circleMarker(
+                [20.98849831231614, 105.75016830870422],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_b9ab68b7dc18e9ede20f8188fd5de426 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_322721f9dc54796e46741128e6ecdfa3 = $(`<div id="html_322721f9dc54796e46741128e6ecdfa3" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-01 14:49:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_b9ab68b7dc18e9ede20f8188fd5de426.setContent(html_322721f9dc54796e46741128e6ecdfa3);
+            
+        
+
+        circle_marker_f1f16241f6bb076577c7ffb693eea213.bindPopup(popup_b9ab68b7dc18e9ede20f8188fd5de426)
+        ;
+
+        
+    
+    
+            var circle_marker_d19ea2ef967a9ec7cc04d8dc71c07384 = L.circleMarker(
+                [20.9894999434196, 105.75061920490307],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_9c32ba1da93d2a0d9469705239873ddf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9f1f86f5b5c919f02e1fac0aa6f3dff7 = $(`<div id="html_9f1f86f5b5c919f02e1fac0aa6f3dff7" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-01 16:40:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_9c32ba1da93d2a0d9469705239873ddf.setContent(html_9f1f86f5b5c919f02e1fac0aa6f3dff7);
+            
+        
+
+        circle_marker_d19ea2ef967a9ec7cc04d8dc71c07384.bindPopup(popup_9c32ba1da93d2a0d9469705239873ddf)
+        ;
+
+        
+    
+    
+            var circle_marker_414a9c4992f42d5ce92e01390f09f2ce = L.circleMarker(
+                [21.006198146021163, 105.83183307221425],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_7b1f14597cfb3a9b37e62010c47b2f19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fff93bc6571251576dd43df051d9f5d6 = $(`<div id="html_fff93bc6571251576dd43df051d9f5d6" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-03 14:17:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_7b1f14597cfb3a9b37e62010c47b2f19.setContent(html_fff93bc6571251576dd43df051d9f5d6);
+            
+        
+
+        circle_marker_414a9c4992f42d5ce92e01390f09f2ce.bindPopup(popup_7b1f14597cfb3a9b37e62010c47b2f19)
+        ;
+
+        
+    
+    
+            var circle_marker_8758b2f451626a89f8f4cb66e4786382 = L.circleMarker(
+                [21.006373690951207, 105.8321470383542],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_289edf5fc42b61f2f99d60c7b81214fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1dbf5885161e7dbfc9cefbb279e4c7c = $(`<div id="html_a1dbf5885161e7dbfc9cefbb279e4c7c" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-04 15:01:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_289edf5fc42b61f2f99d60c7b81214fb.setContent(html_a1dbf5885161e7dbfc9cefbb279e4c7c);
+            
+        
+
+        circle_marker_8758b2f451626a89f8f4cb66e4786382.bindPopup(popup_289edf5fc42b61f2f99d60c7b81214fb)
+        ;
+
+        
+    
+    
+            var circle_marker_bee29efe37a2ce8c21c2d9d88a3b5445 = L.circleMarker(
+                [21.051179466761237, 105.91625040968461],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_d365c5afe4894b5a5e016d96fa8214ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b9122e632dd43fa59519b6c1c022648 = $(`<div id="html_0b9122e632dd43fa59519b6c1c022648" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-03 17:12:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_d365c5afe4894b5a5e016d96fa8214ea.setContent(html_0b9122e632dd43fa59519b6c1c022648);
+            
+        
+
+        circle_marker_bee29efe37a2ce8c21c2d9d88a3b5445.bindPopup(popup_d365c5afe4894b5a5e016d96fa8214ea)
+        ;
+
+        
+    
+    
+            var circle_marker_a623478d8ad9c6df41cdb8bc43b84c13 = L.circleMarker(
+                [21.006388207672998, 105.8318085247062],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_89f9b755b948ae4f746fa9f6fce45e4b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_912936b30b564dc9a67707a047699efc = $(`<div id="html_912936b30b564dc9a67707a047699efc" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 16:12:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_89f9b755b948ae4f746fa9f6fce45e4b.setContent(html_912936b30b564dc9a67707a047699efc);
+            
+        
+
+        circle_marker_a623478d8ad9c6df41cdb8bc43b84c13.bindPopup(popup_89f9b755b948ae4f746fa9f6fce45e4b)
+        ;
+
+        
+    
+    
+            var circle_marker_1c4a2b46a087fac37531569818953f69 = L.circleMarker(
+                [21.084783128279064, 105.78232574281893],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_8520a26e4732af15cbc8587c370257d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66c36e30adbb9ce9ac6ebd5a238c2291 = $(`<div id="html_66c36e30adbb9ce9ac6ebd5a238c2291" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-04 16:08:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_8520a26e4732af15cbc8587c370257d2.setContent(html_66c36e30adbb9ce9ac6ebd5a238c2291);
+            
+        
+
+        circle_marker_1c4a2b46a087fac37531569818953f69.bindPopup(popup_8520a26e4732af15cbc8587c370257d2)
+        ;
+
+        
+    
+    
+            var circle_marker_7e7b72e17c60abe0da5265ee626dc3b6 = L.circleMarker(
+                [20.983640396419084, 105.88039225190052],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_87bff33e3d2277a32288628b36a11a01 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4bb669fca767e7745d4db7137e84429 = $(`<div id="html_e4bb669fca767e7745d4db7137e84429" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-04 17:29:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_87bff33e3d2277a32288628b36a11a01.setContent(html_e4bb669fca767e7745d4db7137e84429);
+            
+        
+
+        circle_marker_7e7b72e17c60abe0da5265ee626dc3b6.bindPopup(popup_87bff33e3d2277a32288628b36a11a01)
+        ;
+
+        
+    
+    
+            var circle_marker_18d70072c55dab4faf0ded494efdf88e = L.circleMarker(
+                [21.008964658700013, 105.9446021109505],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_134d8d94524b1159a20a3d6666a63bb8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cba4d9986fd1e81ad109aaad59643673 = $(`<div id="html_cba4d9986fd1e81ad109aaad59643673" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 14:32:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_134d8d94524b1159a20a3d6666a63bb8.setContent(html_cba4d9986fd1e81ad109aaad59643673);
+            
+        
+
+        circle_marker_18d70072c55dab4faf0ded494efdf88e.bindPopup(popup_134d8d94524b1159a20a3d6666a63bb8)
+        ;
+
+        
+    
+    
+            var circle_marker_5733ed6f0646f5d67300b0b5e109467a = L.circleMarker(
+                [21.093089286550388, 105.93809171687059],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_68d2de9b3f18c6c9e9c65e60bacd4b32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a92595a445014ea46bbf8fc221601bd = $(`<div id="html_7a92595a445014ea46bbf8fc221601bd" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-06 17:47:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_68d2de9b3f18c6c9e9c65e60bacd4b32.setContent(html_7a92595a445014ea46bbf8fc221601bd);
+            
+        
+
+        circle_marker_5733ed6f0646f5d67300b0b5e109467a.bindPopup(popup_68d2de9b3f18c6c9e9c65e60bacd4b32)
+        ;
+
+        
+    
+    
+            var circle_marker_a343f5288c44b3c400500ee0e062629c = L.circleMarker(
+                [20.997538300773442, 105.92022733430338],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_9df97d9f5a31f3a88fa86d1612696fe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7629781faff7d8b82d3734f203a3f323 = $(`<div id="html_7629781faff7d8b82d3734f203a3f323" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 13:58:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_9df97d9f5a31f3a88fa86d1612696fe8.setContent(html_7629781faff7d8b82d3734f203a3f323);
+            
+        
+
+        circle_marker_a343f5288c44b3c400500ee0e062629c.bindPopup(popup_9df97d9f5a31f3a88fa86d1612696fe8)
+        ;
+
+        
+    
+    
+            var circle_marker_b095a6d2c7613226d73be27f4f636fe4 = L.circleMarker(
+                [21.054404469501247, 105.93723095483216],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_79fd71b82c85bbaf4fda714d6dbf960b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b57e398075d369edff352e0169db15e = $(`<div id="html_3b57e398075d369edff352e0169db15e" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-02 17:02:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_79fd71b82c85bbaf4fda714d6dbf960b.setContent(html_3b57e398075d369edff352e0169db15e);
+            
+        
+
+        circle_marker_b095a6d2c7613226d73be27f4f636fe4.bindPopup(popup_79fd71b82c85bbaf4fda714d6dbf960b)
+        ;
+
+        
+    
+    
+            var circle_marker_9f0aee4697c82e0d66da7575c232c8dd = L.circleMarker(
+                [21.08698608288347, 105.92341446371603],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_4e65a0decb976018ddce33ca55a9c672 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2cc5442d14adb7d799e8e57a006b594 = $(`<div id="html_e2cc5442d14adb7d799e8e57a006b594" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-01 16:34:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_4e65a0decb976018ddce33ca55a9c672.setContent(html_e2cc5442d14adb7d799e8e57a006b594);
+            
+        
+
+        circle_marker_9f0aee4697c82e0d66da7575c232c8dd.bindPopup(popup_4e65a0decb976018ddce33ca55a9c672)
+        ;
+
+        
+    
+    
+            var circle_marker_bc4defe49b4d936806ab935a5788ac4e = L.circleMarker(
+                [20.95539134106951, 105.86565602819924],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_64b9d43f54ee1d7fb50e20e745b3c660 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9ed8efec5769b874331d78a77bb6d37 = $(`<div id="html_e9ed8efec5769b874331d78a77bb6d37" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 17:04:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_64b9d43f54ee1d7fb50e20e745b3c660.setContent(html_e9ed8efec5769b874331d78a77bb6d37);
+            
+        
+
+        circle_marker_bc4defe49b4d936806ab935a5788ac4e.bindPopup(popup_64b9d43f54ee1d7fb50e20e745b3c660)
+        ;
+
+        
+    
+    
+            var circle_marker_249c8d68ab24004f638192c7e3dfb90e = L.circleMarker(
+                [21.031396695206137, 105.84311960362649],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_db5030612effe9596e8cbee1f2ecfeb5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b59bdbd635cb915dfbd15ff52c7bb1db = $(`<div id="html_b59bdbd635cb915dfbd15ff52c7bb1db" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-06 17:09:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_db5030612effe9596e8cbee1f2ecfeb5.setContent(html_b59bdbd635cb915dfbd15ff52c7bb1db);
+            
+        
+
+        circle_marker_249c8d68ab24004f638192c7e3dfb90e.bindPopup(popup_db5030612effe9596e8cbee1f2ecfeb5)
+        ;
+
+        
+    
+    
+            var circle_marker_c643f094c0be6588491df035e11891a4 = L.circleMarker(
+                [21.063676916569655, 105.82119453573026],
+                {"bubblingMouseEvents": true, "color": "#ea580c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ea580c", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_fb9d864e81222e094d26d2745c265f25);
+        
+    
+        var popup_60591c1f45687ab003b89aa6a7c23a1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfb4a2e01e41a2388223b77227726c4a = $(`<div id="html_dfb4a2e01e41a2388223b77227726c4a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-05 15:29:00<br>             <b>Time bin:</b> afternoon<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_60591c1f45687ab003b89aa6a7c23a1e.setContent(html_dfb4a2e01e41a2388223b77227726c4a);
+            
+        
+
+        circle_marker_c643f094c0be6588491df035e11891a4.bindPopup(popup_60591c1f45687ab003b89aa6a7c23a1e)
+        ;
+
+        
+    
+    
+            marker_cluster_fb9d864e81222e094d26d2745c265f25.addTo(feature_group_f4829e6a8d50a2d3ec5cb17c343dbe88);
+        
+    
+            feature_group_f4829e6a8d50a2d3ec5cb17c343dbe88.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+            var feature_group_94763bc07c684bc16143f9ac072ff9aa = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_e637184c33ceffabf396f8751d33f46d = L.circleMarker(
+                [20.98999786673581, 105.75152229186573],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_1f0479073f41c91e1c376448587224b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d53cc2ad939adccdd2c4b4ce1f2cde06 = $(`<div id="html_d53cc2ad939adccdd2c4b4ce1f2cde06" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-04 02:52:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_1f0479073f41c91e1c376448587224b2.setContent(html_d53cc2ad939adccdd2c4b4ce1f2cde06);
+            
+        
+
+        circle_marker_e637184c33ceffabf396f8751d33f46d.bindPopup(popup_1f0479073f41c91e1c376448587224b2)
+        ;
+
+        
+    
+    
+            var circle_marker_8d00913f40e455e8c280b16896d2f230 = L.circleMarker(
+                [21.00614951262245, 105.83193340693988],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_d9dc78e253c65b0b587c2ce50d1f9550 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8c1da41a454b5e2d7e3caa5e9da6c88 = $(`<div id="html_d8c1da41a454b5e2d7e3caa5e9da6c88" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-03 19:42:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_d9dc78e253c65b0b587c2ce50d1f9550.setContent(html_d8c1da41a454b5e2d7e3caa5e9da6c88);
+            
+        
+
+        circle_marker_8d00913f40e455e8c280b16896d2f230.bindPopup(popup_d9dc78e253c65b0b587c2ce50d1f9550)
+        ;
+
+        
+    
+    
+            var circle_marker_dedb6f0d53e59d3947486f2b1dba869c = L.circleMarker(
+                [21.006051294376, 105.83206252682254],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_551cca67dd10db7256e1c9f98671289b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0b948b81cbb7124c738d146c60c3f703 = $(`<div id="html_0b948b81cbb7124c738d146c60c3f703" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-08 04:23:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_551cca67dd10db7256e1c9f98671289b.setContent(html_0b948b81cbb7124c738d146c60c3f703);
+            
+        
+
+        circle_marker_dedb6f0d53e59d3947486f2b1dba869c.bindPopup(popup_551cca67dd10db7256e1c9f98671289b)
+        ;
+
+        
+    
+    
+            var circle_marker_e7fabe1e8de25d3b5f06790e9442155e = L.circleMarker(
+                [20.990207294946334, 105.75108106489199],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e0ed745662d387739fffcce4e8b385dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4c3555b50740a45af4398d8abc2c04e2 = $(`<div id="html_4c3555b50740a45af4398d8abc2c04e2" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 02:33:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_e0ed745662d387739fffcce4e8b385dc.setContent(html_4c3555b50740a45af4398d8abc2c04e2);
+            
+        
+
+        circle_marker_e7fabe1e8de25d3b5f06790e9442155e.bindPopup(popup_e0ed745662d387739fffcce4e8b385dc)
+        ;
+
+        
+    
+    
+            var circle_marker_1c7a429c8102302d0b5a0dd58807ac3d = L.circleMarker(
+                [21.006293863951985, 105.83176670587345],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_886a3d69c416b82f66b3ce2e0f334d2e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05dd8111e4f02a66bae4a78aeb43758b = $(`<div id="html_05dd8111e4f02a66bae4a78aeb43758b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-08 00:54:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_886a3d69c416b82f66b3ce2e0f334d2e.setContent(html_05dd8111e4f02a66bae4a78aeb43758b);
+            
+        
+
+        circle_marker_1c7a429c8102302d0b5a0dd58807ac3d.bindPopup(popup_886a3d69c416b82f66b3ce2e0f334d2e)
+        ;
+
+        
+    
+    
+            var circle_marker_e4e6801cd4305d9a4ec5250c55777d8f = L.circleMarker(
+                [21.050531587497876, 105.91612012324087],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_346dc410d27f46604ae2329133e4d8de = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d48d9abab64da00b40744fa784089f17 = $(`<div id="html_d48d9abab64da00b40744fa784089f17" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-03 03:35:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_346dc410d27f46604ae2329133e4d8de.setContent(html_d48d9abab64da00b40744fa784089f17);
+            
+        
+
+        circle_marker_e4e6801cd4305d9a4ec5250c55777d8f.bindPopup(popup_346dc410d27f46604ae2329133e4d8de)
+        ;
+
+        
+    
+    
+            var circle_marker_07e3f4538186ce57b33e0fc425403900 = L.circleMarker(
+                [20.989419599523245, 105.7500649403104],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_b3a3f046cc934d32e33e4591ed931e6b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29db99e81f9a80fa517382bd6484a68d = $(`<div id="html_29db99e81f9a80fa517382bd6484a68d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 04:54:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_b3a3f046cc934d32e33e4591ed931e6b.setContent(html_29db99e81f9a80fa517382bd6484a68d);
+            
+        
+
+        circle_marker_07e3f4538186ce57b33e0fc425403900.bindPopup(popup_b3a3f046cc934d32e33e4591ed931e6b)
+        ;
+
+        
+    
+    
+            var circle_marker_20ae6190a145244477f1fab6d2513a0e = L.circleMarker(
+                [21.05108785194563, 105.91606366518134],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_27455e644f4ca552fabf45c682555bec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9dd16530de311a5d92a34eb6a9bac6ce = $(`<div id="html_9dd16530de311a5d92a34eb6a9bac6ce" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 18:47:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_27455e644f4ca552fabf45c682555bec.setContent(html_9dd16530de311a5d92a34eb6a9bac6ce);
+            
+        
+
+        circle_marker_20ae6190a145244477f1fab6d2513a0e.bindPopup(popup_27455e644f4ca552fabf45c682555bec)
+        ;
+
+        
+    
+    
+            var circle_marker_8a974563e2741de618451f58ebf7aa31 = L.circleMarker(
+                [20.98895786293929, 105.75063970822265],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_0c1b441d798a4c566b6dfce570bdf081 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_80bc78d81d0a9d16eb155d2bb2a10af9 = $(`<div id="html_80bc78d81d0a9d16eb155d2bb2a10af9" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-02 02:59:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_0c1b441d798a4c566b6dfce570bdf081.setContent(html_80bc78d81d0a9d16eb155d2bb2a10af9);
+            
+        
+
+        circle_marker_8a974563e2741de618451f58ebf7aa31.bindPopup(popup_0c1b441d798a4c566b6dfce570bdf081)
+        ;
+
+        
+    
+    
+            var circle_marker_f9719d270d3af6a5e4ba47a2d85dfa84 = L.circleMarker(
+                [20.98945597971134, 105.75064997089443],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_875a5a304f424f16be587cc78fe3e524 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef7e711ec880a9bb0d6562521453a99a = $(`<div id="html_ef7e711ec880a9bb0d6562521453a99a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-03 04:24:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_875a5a304f424f16be587cc78fe3e524.setContent(html_ef7e711ec880a9bb0d6562521453a99a);
+            
+        
+
+        circle_marker_f9719d270d3af6a5e4ba47a2d85dfa84.bindPopup(popup_875a5a304f424f16be587cc78fe3e524)
+        ;
+
+        
+    
+    
+            var circle_marker_6d15f1fcada1028ef4087085805d9a92 = L.circleMarker(
+                [20.98828369283108, 105.75038970401943],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_681981ab8e0b64d65a549471e0fd3994 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fabb1e66f548270371c6ffe7ccc289b = $(`<div id="html_2fabb1e66f548270371c6ffe7ccc289b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-02 03:29:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_681981ab8e0b64d65a549471e0fd3994.setContent(html_2fabb1e66f548270371c6ffe7ccc289b);
+            
+        
+
+        circle_marker_6d15f1fcada1028ef4087085805d9a92.bindPopup(popup_681981ab8e0b64d65a549471e0fd3994)
+        ;
+
+        
+    
+    
+            var circle_marker_4a2a9f12d88f55dc84e67bc714bd0ed1 = L.circleMarker(
+                [20.990269616574974, 105.75252184025842],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_27f62a68a93cb220f26bdbf65f2f59ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aa8a1b4aff737758159f82be074f7bbf = $(`<div id="html_aa8a1b4aff737758159f82be074f7bbf" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 04:37:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_27f62a68a93cb220f26bdbf65f2f59ab.setContent(html_aa8a1b4aff737758159f82be074f7bbf);
+            
+        
+
+        circle_marker_4a2a9f12d88f55dc84e67bc714bd0ed1.bindPopup(popup_27f62a68a93cb220f26bdbf65f2f59ab)
+        ;
+
+        
+    
+    
+            var circle_marker_ffc5fd792e30f86bd3ba7c22d9374ef4 = L.circleMarker(
+                [20.99050856318885, 105.75214993295201],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_11efe1ef7529073c8554c7e4020a3f3a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_32da591e1d702b40337790894d2bea1f = $(`<div id="html_32da591e1d702b40337790894d2bea1f" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-03 19:58:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_11efe1ef7529073c8554c7e4020a3f3a.setContent(html_32da591e1d702b40337790894d2bea1f);
+            
+        
+
+        circle_marker_ffc5fd792e30f86bd3ba7c22d9374ef4.bindPopup(popup_11efe1ef7529073c8554c7e4020a3f3a)
+        ;
+
+        
+    
+    
+            var circle_marker_b0e4a66ba9df4c7152c1ca39282305a2 = L.circleMarker(
+                [20.988373523037403, 105.75066106657086],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_5670ca7b9e9986e9ff5e069cdaafd720 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83bd00307517f1456d36b40f50be6d60 = $(`<div id="html_83bd00307517f1456d36b40f50be6d60" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-01 23:16:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_5670ca7b9e9986e9ff5e069cdaafd720.setContent(html_83bd00307517f1456d36b40f50be6d60);
+            
+        
+
+        circle_marker_b0e4a66ba9df4c7152c1ca39282305a2.bindPopup(popup_5670ca7b9e9986e9ff5e069cdaafd720)
+        ;
+
+        
+    
+    
+            var circle_marker_e3e0c0bf847331648aebeceb49a395dc = L.circleMarker(
+                [21.00623746687158, 105.83178698906616],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_a3bcbc260a76279ef468697c7174ce0b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_94cd490380cb1a3bba6272d67e03197a = $(`<div id="html_94cd490380cb1a3bba6272d67e03197a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-04 22:08:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_a3bcbc260a76279ef468697c7174ce0b.setContent(html_94cd490380cb1a3bba6272d67e03197a);
+            
+        
+
+        circle_marker_e3e0c0bf847331648aebeceb49a395dc.bindPopup(popup_a3bcbc260a76279ef468697c7174ce0b)
+        ;
+
+        
+    
+    
+            var circle_marker_b186fdf78f188f8f69845cdb81cd80a7 = L.circleMarker(
+                [21.05128304747839, 105.91675253058867],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e1900cf7299d30400447c9f51a34ba3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6024e03eb2ccc11520304a9ec30bfebb = $(`<div id="html_6024e03eb2ccc11520304a9ec30bfebb" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-02 02:04:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_e1900cf7299d30400447c9f51a34ba3f.setContent(html_6024e03eb2ccc11520304a9ec30bfebb);
+            
+        
+
+        circle_marker_b186fdf78f188f8f69845cdb81cd80a7.bindPopup(popup_e1900cf7299d30400447c9f51a34ba3f)
+        ;
+
+        
+    
+    
+            var circle_marker_41a318d7140da79078c91f748adde413 = L.circleMarker(
+                [21.00610477038572, 105.83192297587695],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_5f0938714cdc32b785fdec606be6351f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5cebaeac36d2b82a978f964b12955484 = $(`<div id="html_5cebaeac36d2b82a978f964b12955484" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-04 21:55:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_5f0938714cdc32b785fdec606be6351f.setContent(html_5cebaeac36d2b82a978f964b12955484);
+            
+        
+
+        circle_marker_41a318d7140da79078c91f748adde413.bindPopup(popup_5f0938714cdc32b785fdec606be6351f)
+        ;
+
+        
+    
+    
+            var circle_marker_76b0cfa0e5b515c7874b02a0302c8768 = L.circleMarker(
+                [21.006179538300447, 105.83170942737414],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_7694d4dde8cef6f6c1cdafd23fdb06a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be370a5518e68baf29b74d94db56920a = $(`<div id="html_be370a5518e68baf29b74d94db56920a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 20:02:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_7694d4dde8cef6f6c1cdafd23fdb06a2.setContent(html_be370a5518e68baf29b74d94db56920a);
+            
+        
+
+        circle_marker_76b0cfa0e5b515c7874b02a0302c8768.bindPopup(popup_7694d4dde8cef6f6c1cdafd23fdb06a2)
+        ;
+
+        
+    
+    
+            var circle_marker_a53e3e37c89dbec03922680c18422a14 = L.circleMarker(
+                [20.98998414009615, 105.75127186107134],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_f66c1a4f7c3cfd9b510bf4c28da66b81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_230f338cf719328c726ebe4a2b548b18 = $(`<div id="html_230f338cf719328c726ebe4a2b548b18" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-02 23:00:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_f66c1a4f7c3cfd9b510bf4c28da66b81.setContent(html_230f338cf719328c726ebe4a2b548b18);
+            
+        
+
+        circle_marker_a53e3e37c89dbec03922680c18422a14.bindPopup(popup_f66c1a4f7c3cfd9b510bf4c28da66b81)
+        ;
+
+        
+    
+    
+            var circle_marker_cb61d2aa2d4ce5c036cdb8eea878110b = L.circleMarker(
+                [21.050731704959507, 105.91635741070957],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_1fc719fe0083c8646a724ea30a323ecc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_67fb6cae74804511de8dc74c403022fd = $(`<div id="html_67fb6cae74804511de8dc74c403022fd" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-04 03:20:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_1fc719fe0083c8646a724ea30a323ecc.setContent(html_67fb6cae74804511de8dc74c403022fd);
+            
+        
+
+        circle_marker_cb61d2aa2d4ce5c036cdb8eea878110b.bindPopup(popup_1fc719fe0083c8646a724ea30a323ecc)
+        ;
+
+        
+    
+    
+            var circle_marker_9632daf79ebb6f98c5aae07971a79b3a = L.circleMarker(
+                [21.05091741307832, 105.91592338150345],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_dfbf10af86fca34f75a680e6d7ced1a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_537e7ddba2311b050e2f424764a4b026 = $(`<div id="html_537e7ddba2311b050e2f424764a4b026" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 04:59:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_dfbf10af86fca34f75a680e6d7ced1a7.setContent(html_537e7ddba2311b050e2f424764a4b026);
+            
+        
+
+        circle_marker_9632daf79ebb6f98c5aae07971a79b3a.bindPopup(popup_dfbf10af86fca34f75a680e6d7ced1a7)
+        ;
+
+        
+    
+    
+            var circle_marker_7ce02a1efd193127005aaef4a88c01b3 = L.circleMarker(
+                [21.006370291564142, 105.83188735795434],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_dcffdae08737f270b9d7607791d7efbd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_df05d74a66c3cfa32de16d660700c205 = $(`<div id="html_df05d74a66c3cfa32de16d660700c205" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 03:08:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_dcffdae08737f270b9d7607791d7efbd.setContent(html_df05d74a66c3cfa32de16d660700c205);
+            
+        
+
+        circle_marker_7ce02a1efd193127005aaef4a88c01b3.bindPopup(popup_dcffdae08737f270b9d7607791d7efbd)
+        ;
+
+        
+    
+    
+            var circle_marker_11039890cf21b8a871b7ab83669c4f76 = L.circleMarker(
+                [21.05096303090888, 105.91652528189772],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_67c52dca3a196f5828135e78a616f0d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bbd677562e1bf73975956f392d19752c = $(`<div id="html_bbd677562e1bf73975956f392d19752c" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-01 20:51:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Plaza Long Biên             </div>`)[0];
+                popup_67c52dca3a196f5828135e78a616f0d4.setContent(html_bbd677562e1bf73975956f392d19752c);
+            
+        
+
+        circle_marker_11039890cf21b8a871b7ab83669c4f76.bindPopup(popup_67c52dca3a196f5828135e78a616f0d4)
+        ;
+
+        
+    
+    
+            var circle_marker_c220282921e4f11806f89ebe768b6238 = L.circleMarker(
+                [21.006107610715286, 105.83199092918794],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_7f625676bf221aee549277cdc7597a3d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_585d737b633c87524f68f0b041320806 = $(`<div id="html_585d737b633c87524f68f0b041320806" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 03:41:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> Vincom Phạm Ngọc Thạch             </div>`)[0];
+                popup_7f625676bf221aee549277cdc7597a3d.setContent(html_585d737b633c87524f68f0b041320806);
+            
+        
+
+        circle_marker_c220282921e4f11806f89ebe768b6238.bindPopup(popup_7f625676bf221aee549277cdc7597a3d)
+        ;
+
+        
+    
+    
+            var circle_marker_c38bd361576fec20bdcd2c7ba264bc6f = L.circleMarker(
+                [20.990457629151653, 105.75250661798681],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_5949684ae7be7488a3bb9a836f854f23 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17c6cc7cfd9c69cae5dde3ac9618acea = $(`<div id="html_17c6cc7cfd9c69cae5dde3ac9618acea" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-08 02:51:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 1<br>             <b>Mall:</b> AEON Mall Hà Đông             </div>`)[0];
+                popup_5949684ae7be7488a3bb9a836f854f23.setContent(html_17c6cc7cfd9c69cae5dde3ac9618acea);
+            
+        
+
+        circle_marker_c38bd361576fec20bdcd2c7ba264bc6f.bindPopup(popup_5949684ae7be7488a3bb9a836f854f23)
+        ;
+
+        
+    
+    
+            var circle_marker_c2d883b37e9b5af522d58f4cb6124908 = L.circleMarker(
+                [20.96262099474926, 105.87840632923086],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e58211ea466e6166aad98e654a17c5bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86a06fe48f442d604872897a82c69298 = $(`<div id="html_86a06fe48f442d604872897a82c69298" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-05 04:53:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e58211ea466e6166aad98e654a17c5bd.setContent(html_86a06fe48f442d604872897a82c69298);
+            
+        
+
+        circle_marker_c2d883b37e9b5af522d58f4cb6124908.bindPopup(popup_e58211ea466e6166aad98e654a17c5bd)
+        ;
+
+        
+    
+    
+            var circle_marker_393468bc59d1b8f25056ffaa9518fc38 = L.circleMarker(
+                [20.951379557742495, 105.87128581193193],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_0e54df3c717ef29dfaca10ec81861c67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d223117182bb0a370f0c413dd91c257a = $(`<div id="html_d223117182bb0a370f0c413dd91c257a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-03 03:11:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_0e54df3c717ef29dfaca10ec81861c67.setContent(html_d223117182bb0a370f0c413dd91c257a);
+            
+        
+
+        circle_marker_393468bc59d1b8f25056ffaa9518fc38.bindPopup(popup_0e54df3c717ef29dfaca10ec81861c67)
+        ;
+
+        
+    
+    
+            var circle_marker_506feb20734783a49b57ef979560ad66 = L.circleMarker(
+                [20.974121207712624, 105.75101231676925],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_2786f0e6dd818414b385c6872d7341b4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e0cbaa841154e49c1f5ff97710aa8d2 = $(`<div id="html_9e0cbaa841154e49c1f5ff97710aa8d2" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-07 00:41:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_2786f0e6dd818414b385c6872d7341b4.setContent(html_9e0cbaa841154e49c1f5ff97710aa8d2);
+            
+        
+
+        circle_marker_506feb20734783a49b57ef979560ad66.bindPopup(popup_2786f0e6dd818414b385c6872d7341b4)
+        ;
+
+        
+    
+    
+            var circle_marker_af8917689c2971a43bf1a9fc4b569a40 = L.circleMarker(
+                [21.053784279653904, 105.85974675787332],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_cd900a64f5db0a8d8441c6d002b6b16d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2c5c483d453986d5163ade61d616f7a = $(`<div id="html_e2c5c483d453986d5163ade61d616f7a" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 02:37:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_cd900a64f5db0a8d8441c6d002b6b16d.setContent(html_e2c5c483d453986d5163ade61d616f7a);
+            
+        
+
+        circle_marker_af8917689c2971a43bf1a9fc4b569a40.bindPopup(popup_cd900a64f5db0a8d8441c6d002b6b16d)
+        ;
+
+        
+    
+    
+            var circle_marker_f49e599938387c913833b230a68bc0b6 = L.circleMarker(
+                [21.061973710767706, 105.81507993963186],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_fb36283615b9d70948222827c4034f0a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a69b638743cb3bbc475f63c2f66dd6d = $(`<div id="html_3a69b638743cb3bbc475f63c2f66dd6d" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 01:44:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_fb36283615b9d70948222827c4034f0a.setContent(html_3a69b638743cb3bbc475f63c2f66dd6d);
+            
+        
+
+        circle_marker_f49e599938387c913833b230a68bc0b6.bindPopup(popup_fb36283615b9d70948222827c4034f0a)
+        ;
+
+        
+    
+    
+            var circle_marker_dd0cc229726329b0b2e647b6ee1f4cba = L.circleMarker(
+                [21.077383511574126, 105.87992657980945],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e4d3517f06e9931e514b767c0a5a5bc5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c56d796f6716e8e4f1bc803a7f53948 = $(`<div id="html_2c56d796f6716e8e4f1bc803a7f53948" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-03 04:06:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e4d3517f06e9931e514b767c0a5a5bc5.setContent(html_2c56d796f6716e8e4f1bc803a7f53948);
+            
+        
+
+        circle_marker_dd0cc229726329b0b2e647b6ee1f4cba.bindPopup(popup_e4d3517f06e9931e514b767c0a5a5bc5)
+        ;
+
+        
+    
+    
+            var circle_marker_db037da4bde8b9dfa1fe76638bfb6b5c = L.circleMarker(
+                [21.005157370458914, 105.76873495356561],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_ad7e9778a659e1b00c2a23650ae2fb05 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_270402cb2430a242f1631f2e17bf5975 = $(`<div id="html_270402cb2430a242f1631f2e17bf5975" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-08 03:33:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_ad7e9778a659e1b00c2a23650ae2fb05.setContent(html_270402cb2430a242f1631f2e17bf5975);
+            
+        
+
+        circle_marker_db037da4bde8b9dfa1fe76638bfb6b5c.bindPopup(popup_ad7e9778a659e1b00c2a23650ae2fb05)
+        ;
+
+        
+    
+    
+            var circle_marker_0dc8c4daa767e0b08ef4412870faceaa = L.circleMarker(
+                [20.98659844650686, 105.80304047353634],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_7e0416eff4e2380c900e07a0be4859ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2f1c0dc7e28132f554401bc658aaefe = $(`<div id="html_b2f1c0dc7e28132f554401bc658aaefe" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-06 21:25:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_7e0416eff4e2380c900e07a0be4859ca.setContent(html_b2f1c0dc7e28132f554401bc658aaefe);
+            
+        
+
+        circle_marker_0dc8c4daa767e0b08ef4412870faceaa.bindPopup(popup_7e0416eff4e2380c900e07a0be4859ca)
+        ;
+
+        
+    
+    
+            var circle_marker_28006f6cd0fa5b496bc0f2a400a7a001 = L.circleMarker(
+                [21.04467079389959, 105.92840931103542],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e2ab0d27d1c0c3ce3608848501773599 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8371418913398e4ac3d4f72c98e28a44 = $(`<div id="html_8371418913398e4ac3d4f72c98e28a44" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-04 19:58:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e2ab0d27d1c0c3ce3608848501773599.setContent(html_8371418913398e4ac3d4f72c98e28a44);
+            
+        
+
+        circle_marker_28006f6cd0fa5b496bc0f2a400a7a001.bindPopup(popup_e2ab0d27d1c0c3ce3608848501773599)
+        ;
+
+        
+    
+    
+            var circle_marker_026841b0b739bf07ce104325418db867 = L.circleMarker(
+                [21.02539556396578, 105.90896226070834],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_4f036499154047b51ce26d3ea223d598 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7971db1722cfd64b038ea2a91c9c721 = $(`<div id="html_a7971db1722cfd64b038ea2a91c9c721" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-01 23:49:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_4f036499154047b51ce26d3ea223d598.setContent(html_a7971db1722cfd64b038ea2a91c9c721);
+            
+        
+
+        circle_marker_026841b0b739bf07ce104325418db867.bindPopup(popup_4f036499154047b51ce26d3ea223d598)
+        ;
+
+        
+    
+    
+            var circle_marker_4b77e5f20a4b6e83fb4295d1ca56b3c3 = L.circleMarker(
+                [21.02387765407283, 105.86538077692528],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_eccd5ded6552769f1e76daeaa6cb88d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ccac6f039cdd5ab00f781aa01feba49 = $(`<div id="html_9ccac6f039cdd5ab00f781aa01feba49" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 18:55:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_eccd5ded6552769f1e76daeaa6cb88d4.setContent(html_9ccac6f039cdd5ab00f781aa01feba49);
+            
+        
+
+        circle_marker_4b77e5f20a4b6e83fb4295d1ca56b3c3.bindPopup(popup_eccd5ded6552769f1e76daeaa6cb88d4)
+        ;
+
+        
+    
+    
+            var circle_marker_45a95928179f43abdff515eefda85cb6 = L.circleMarker(
+                [20.95364739496472, 105.80615447248817],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_cad6172c804ee241f9bc7084d32b9bc3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_107038991c9ca66f7c8d4f3717cc2701 = $(`<div id="html_107038991c9ca66f7c8d4f3717cc2701" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-02 02:53:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_cad6172c804ee241f9bc7084d32b9bc3.setContent(html_107038991c9ca66f7c8d4f3717cc2701);
+            
+        
+
+        circle_marker_45a95928179f43abdff515eefda85cb6.bindPopup(popup_cad6172c804ee241f9bc7084d32b9bc3)
+        ;
+
+        
+    
+    
+            var circle_marker_ef2978081976dcf3dd41d247c9d05554 = L.circleMarker(
+                [20.976566601911056, 105.87909445918143],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_ab16c1300414fda3367a1af7171e4dbf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91229b9452a7f91be4e58bd611845ec6 = $(`<div id="html_91229b9452a7f91be4e58bd611845ec6" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-02 18:20:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_ab16c1300414fda3367a1af7171e4dbf.setContent(html_91229b9452a7f91be4e58bd611845ec6);
+            
+        
+
+        circle_marker_ef2978081976dcf3dd41d247c9d05554.bindPopup(popup_ab16c1300414fda3367a1af7171e4dbf)
+        ;
+
+        
+    
+    
+            var circle_marker_045507587b564efd93fe99afc8120573 = L.circleMarker(
+                [21.094998222856553, 105.83563682966346],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_793cc1771bf427bdebef4c2de69ee88b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b8fbb29cdb9586348833b745609ce933 = $(`<div id="html_b8fbb29cdb9586348833b745609ce933" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 03:32:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_793cc1771bf427bdebef4c2de69ee88b.setContent(html_b8fbb29cdb9586348833b745609ce933);
+            
+        
+
+        circle_marker_045507587b564efd93fe99afc8120573.bindPopup(popup_793cc1771bf427bdebef4c2de69ee88b)
+        ;
+
+        
+    
+    
+            var circle_marker_e9a9f044be7b7ce18939ae7c8b885072 = L.circleMarker(
+                [21.007764659290288, 105.80888977841391],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_20192997b3507c4d1c7cc6745109e5cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2af0afd79cbab70f83390a8618ab7b6 = $(`<div id="html_b2af0afd79cbab70f83390a8618ab7b6" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-04 21:07:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_20192997b3507c4d1c7cc6745109e5cb.setContent(html_b2af0afd79cbab70f83390a8618ab7b6);
+            
+        
+
+        circle_marker_e9a9f044be7b7ce18939ae7c8b885072.bindPopup(popup_20192997b3507c4d1c7cc6745109e5cb)
+        ;
+
+        
+    
+    
+            var circle_marker_90ee671adad1d93977854308cd6d0367 = L.circleMarker(
+                [20.964576474065616, 105.86401223401788],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_7e9fb47f614c7050002016c1d568663b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_687ea480b97d7ed1fb4f5001bb604bba = $(`<div id="html_687ea480b97d7ed1fb4f5001bb604bba" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-03 21:21:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_7e9fb47f614c7050002016c1d568663b.setContent(html_687ea480b97d7ed1fb4f5001bb604bba);
+            
+        
+
+        circle_marker_90ee671adad1d93977854308cd6d0367.bindPopup(popup_7e9fb47f614c7050002016c1d568663b)
+        ;
+
+        
+    
+    
+            var circle_marker_955939bc9af3ccc0711bf49c1c91b43d = L.circleMarker(
+                [21.098508077515643, 105.87300144533984],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_6268859dd20297b2714ea91fae621566 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_901a7ae2d995885ec2d4263aec63dfd4 = $(`<div id="html_901a7ae2d995885ec2d4263aec63dfd4" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-05 04:19:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_6268859dd20297b2714ea91fae621566.setContent(html_901a7ae2d995885ec2d4263aec63dfd4);
+            
+        
+
+        circle_marker_955939bc9af3ccc0711bf49c1c91b43d.bindPopup(popup_6268859dd20297b2714ea91fae621566)
+        ;
+
+        
+    
+    
+            var circle_marker_0369b911cdf25c8154356d76cfee3925 = L.circleMarker(
+                [21.02774944785456, 105.77801680304731],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_138002e979bd44c6af834306148fed32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_26ae43b661915cc79a516521377a684b = $(`<div id="html_26ae43b661915cc79a516521377a684b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-08 00:38:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_138002e979bd44c6af834306148fed32.setContent(html_26ae43b661915cc79a516521377a684b);
+            
+        
+
+        circle_marker_0369b911cdf25c8154356d76cfee3925.bindPopup(popup_138002e979bd44c6af834306148fed32)
+        ;
+
+        
+    
+    
+            var circle_marker_9503d033401a9ffbd36fee516d2631c9 = L.circleMarker(
+                [21.061115292663132, 105.92547461438559],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_af9eed57f2ef6ba1349bf32248aca011 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f048ce4e4098816d914b5e2011b9ada5 = $(`<div id="html_f048ce4e4098816d914b5e2011b9ada5" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-03 22:50:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_af9eed57f2ef6ba1349bf32248aca011.setContent(html_f048ce4e4098816d914b5e2011b9ada5);
+            
+        
+
+        circle_marker_9503d033401a9ffbd36fee516d2631c9.bindPopup(popup_af9eed57f2ef6ba1349bf32248aca011)
+        ;
+
+        
+    
+    
+            var circle_marker_d7db5a2107382fa2f6ea27bc17516a1e = L.circleMarker(
+                [21.055372612598067, 105.88940314819905],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e568715e6a9d8ce149bb23c6a76756c6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7f87827f6f0ac025d649abd96cd2c69 = $(`<div id="html_a7f87827f6f0ac025d649abd96cd2c69" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-03 20:08:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e568715e6a9d8ce149bb23c6a76756c6.setContent(html_a7f87827f6f0ac025d649abd96cd2c69);
+            
+        
+
+        circle_marker_d7db5a2107382fa2f6ea27bc17516a1e.bindPopup(popup_e568715e6a9d8ce149bb23c6a76756c6)
+        ;
+
+        
+    
+    
+            var circle_marker_4616fbb072548427d2e1b35aaf04f4be = L.circleMarker(
+                [20.994038776639673, 105.82189823024395],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_58f1dc7e43591cfd8524bfcdd318be7f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b29432c9f07c8ef894e4da4682c3146 = $(`<div id="html_1b29432c9f07c8ef894e4da4682c3146" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 03:23:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_58f1dc7e43591cfd8524bfcdd318be7f.setContent(html_1b29432c9f07c8ef894e4da4682c3146);
+            
+        
+
+        circle_marker_4616fbb072548427d2e1b35aaf04f4be.bindPopup(popup_58f1dc7e43591cfd8524bfcdd318be7f)
+        ;
+
+        
+    
+    
+            var circle_marker_6f9f79f341559e5a32d61d9abedafe9c = L.circleMarker(
+                [21.071517009201877, 105.9118722310957],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_5f0d46916a061010ca04d44d6e6ce494 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5ba3d9e82eb9ed0a3cc3804b6f277cd = $(`<div id="html_b5ba3d9e82eb9ed0a3cc3804b6f277cd" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-03 22:30:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_5f0d46916a061010ca04d44d6e6ce494.setContent(html_b5ba3d9e82eb9ed0a3cc3804b6f277cd);
+            
+        
+
+        circle_marker_6f9f79f341559e5a32d61d9abedafe9c.bindPopup(popup_5f0d46916a061010ca04d44d6e6ce494)
+        ;
+
+        
+    
+    
+            var circle_marker_9b5bcc8039555a29105beab0264004b0 = L.circleMarker(
+                [21.02522744420308, 105.85226847977219],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_1f769f922c9f50a0b62c3cef4ef1c0a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f312edde8236a3d9004aedced430189 = $(`<div id="html_6f312edde8236a3d9004aedced430189" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-02 03:20:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_1f769f922c9f50a0b62c3cef4ef1c0a4.setContent(html_6f312edde8236a3d9004aedced430189);
+            
+        
+
+        circle_marker_9b5bcc8039555a29105beab0264004b0.bindPopup(popup_1f769f922c9f50a0b62c3cef4ef1c0a4)
+        ;
+
+        
+    
+    
+            var circle_marker_b2dff301ecf8d079eddae46cf098111d = L.circleMarker(
+                [21.047494589616665, 105.90965903579335],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_0c7629c682afb91cdce9a017dce66713 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9e25a43ed45b551c5ba85518cf67c17 = $(`<div id="html_e9e25a43ed45b551c5ba85518cf67c17" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-04 00:59:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_0c7629c682afb91cdce9a017dce66713.setContent(html_e9e25a43ed45b551c5ba85518cf67c17);
+            
+        
+
+        circle_marker_b2dff301ecf8d079eddae46cf098111d.bindPopup(popup_0c7629c682afb91cdce9a017dce66713)
+        ;
+
+        
+    
+    
+            var circle_marker_6cfedb5601cc98e2972de390150357ea = L.circleMarker(
+                [21.069368900415416, 105.89039337545154],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e7e6f85b3b4a7c92a169360bd5c21aa6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2fdaa93a848c319bdadd64c87926e021 = $(`<div id="html_2fdaa93a848c319bdadd64c87926e021" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-06 20:33:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e7e6f85b3b4a7c92a169360bd5c21aa6.setContent(html_2fdaa93a848c319bdadd64c87926e021);
+            
+        
+
+        circle_marker_6cfedb5601cc98e2972de390150357ea.bindPopup(popup_e7e6f85b3b4a7c92a169360bd5c21aa6)
+        ;
+
+        
+    
+    
+            var circle_marker_d9e1ca04e8b5547c60d91d64be58abde = L.circleMarker(
+                [20.96409729097613, 105.82511659052798],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_5dc177a0f1dbe7bb23ffe712d35a4b66 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_84084ab1e6724a54fc5d77bde97ef004 = $(`<div id="html_84084ab1e6724a54fc5d77bde97ef004" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-07 19:55:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_5dc177a0f1dbe7bb23ffe712d35a4b66.setContent(html_84084ab1e6724a54fc5d77bde97ef004);
+            
+        
+
+        circle_marker_d9e1ca04e8b5547c60d91d64be58abde.bindPopup(popup_5dc177a0f1dbe7bb23ffe712d35a4b66)
+        ;
+
+        
+    
+    
+            var circle_marker_5159418a3b4de16dc72912b0e062c3e1 = L.circleMarker(
+                [21.028336489008222, 105.77541210253038],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_f46097f1202a39194ce67d23d6223a98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4914a8dfa926b3076b932c655ded7e0 = $(`<div id="html_c4914a8dfa926b3076b932c655ded7e0" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-06 00:15:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_f46097f1202a39194ce67d23d6223a98.setContent(html_c4914a8dfa926b3076b932c655ded7e0);
+            
+        
+
+        circle_marker_5159418a3b4de16dc72912b0e062c3e1.bindPopup(popup_f46097f1202a39194ce67d23d6223a98)
+        ;
+
+        
+    
+    
+            var circle_marker_d1c72475fe360116c36d97b9c9396a9e = L.circleMarker(
+                [20.982373154124527, 105.90399871061972],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_d26e92db0d73737e20a0abb788e0604f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffd8faee8b0ee275c3386ceef39f6897 = $(`<div id="html_ffd8faee8b0ee275c3386ceef39f6897" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-01 22:47:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_d26e92db0d73737e20a0abb788e0604f.setContent(html_ffd8faee8b0ee275c3386ceef39f6897);
+            
+        
+
+        circle_marker_d1c72475fe360116c36d97b9c9396a9e.bindPopup(popup_d26e92db0d73737e20a0abb788e0604f)
+        ;
+
+        
+    
+    
+            var circle_marker_00a57fc6b7373a9bf4653d97903dd424 = L.circleMarker(
+                [20.962802119749064, 105.8745780951638],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_e7e7ad2248e3afcd37ff3241ec06b0af = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18d809a591792c336466da661d0d6fea = $(`<div id="html_18d809a591792c336466da661d0d6fea" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-02 00:33:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_e7e7ad2248e3afcd37ff3241ec06b0af.setContent(html_18d809a591792c336466da661d0d6fea);
+            
+        
+
+        circle_marker_00a57fc6b7373a9bf4653d97903dd424.bindPopup(popup_e7e7ad2248e3afcd37ff3241ec06b0af)
+        ;
+
+        
+    
+    
+            var circle_marker_0a8b11585ecd19488dda782af17fb3b9 = L.circleMarker(
+                [21.029703194735223, 105.76033634423372],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_96b41b94a90d44d60e7296a242b7a594 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8859b36dd63822cc07a0840ff0fe7dd3 = $(`<div id="html_8859b36dd63822cc07a0840ff0fe7dd3" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-05 04:39:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_96b41b94a90d44d60e7296a242b7a594.setContent(html_8859b36dd63822cc07a0840ff0fe7dd3);
+            
+        
+
+        circle_marker_0a8b11585ecd19488dda782af17fb3b9.bindPopup(popup_96b41b94a90d44d60e7296a242b7a594)
+        ;
+
+        
+    
+    
+            var circle_marker_77400cfef371144ebef58ac8a6e5785e = L.circleMarker(
+                [21.045614485224732, 105.85812702432202],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_88a33b097d93476b004f556c38e68884 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9518f5c037f3d03774bdf15743cbc27f = $(`<div id="html_9518f5c037f3d03774bdf15743cbc27f" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-04 03:53:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_88a33b097d93476b004f556c38e68884.setContent(html_9518f5c037f3d03774bdf15743cbc27f);
+            
+        
+
+        circle_marker_77400cfef371144ebef58ac8a6e5785e.bindPopup(popup_88a33b097d93476b004f556c38e68884)
+        ;
+
+        
+    
+    
+            var circle_marker_2b02ebc2e8315c3979c0f1d37a9cb9b6 = L.circleMarker(
+                [20.99062483768931, 105.90903723895374],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_6aa39eb03a981b3c55672701d0c5017a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c288173f39e8bc372d3b1e91c83e3f93 = $(`<div id="html_c288173f39e8bc372d3b1e91c83e3f93" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C002<br>             <b>Time:</b> 2026-03-06 03:12:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_6aa39eb03a981b3c55672701d0c5017a.setContent(html_c288173f39e8bc372d3b1e91c83e3f93);
+            
+        
+
+        circle_marker_2b02ebc2e8315c3979c0f1d37a9cb9b6.bindPopup(popup_6aa39eb03a981b3c55672701d0c5017a)
+        ;
+
+        
+    
+    
+            var circle_marker_35109c3a95c22df5d9ac37f6b9f1eb4d = L.circleMarker(
+                [21.09439726220169, 105.75507014868309],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_baa4402a3a9559fa40e4c91d8f103422 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a005cd1e6d6d4035e6c73c7aef4b1cd2 = $(`<div id="html_a005cd1e6d6d4035e6c73c7aef4b1cd2" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-04 04:12:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_baa4402a3a9559fa40e4c91d8f103422.setContent(html_a005cd1e6d6d4035e6c73c7aef4b1cd2);
+            
+        
+
+        circle_marker_35109c3a95c22df5d9ac37f6b9f1eb4d.bindPopup(popup_baa4402a3a9559fa40e4c91d8f103422)
+        ;
+
+        
+    
+    
+            var circle_marker_0aa560cec66f8835a48bf395a168ef4b = L.circleMarker(
+                [21.060684537504365, 105.94097305613265],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_429ec0f3a42bd80b370add24764596a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ac1cca20b106126e2013561d56d14658 = $(`<div id="html_ac1cca20b106126e2013561d56d14658" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-06 20:36:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_429ec0f3a42bd80b370add24764596a2.setContent(html_ac1cca20b106126e2013561d56d14658);
+            
+        
+
+        circle_marker_0aa560cec66f8835a48bf395a168ef4b.bindPopup(popup_429ec0f3a42bd80b370add24764596a2)
+        ;
+
+        
+    
+    
+            var circle_marker_421bc37e4cc5d057bee8a2b818ab58fc = L.circleMarker(
+                [21.041758111935152, 105.86087081050228],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_ef739b42d76d6cd3a31fd21c82f86d07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d5fcc45993ad4e9080c3248b1f65052b = $(`<div id="html_d5fcc45993ad4e9080c3248b1f65052b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-03 18:22:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_ef739b42d76d6cd3a31fd21c82f86d07.setContent(html_d5fcc45993ad4e9080c3248b1f65052b);
+            
+        
+
+        circle_marker_421bc37e4cc5d057bee8a2b818ab58fc.bindPopup(popup_ef739b42d76d6cd3a31fd21c82f86d07)
+        ;
+
+        
+    
+    
+            var circle_marker_5528ef6d0bbee25366c3cd14d84e20df = L.circleMarker(
+                [20.987159648425173, 105.83392001248556],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_9d32570ff1d447fcd24dc1b5ec60fa26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05d32c930d074fd2848abcdf14d925de = $(`<div id="html_05d32c930d074fd2848abcdf14d925de" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C004<br>             <b>Time:</b> 2026-03-02 00:00:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_9d32570ff1d447fcd24dc1b5ec60fa26.setContent(html_05d32c930d074fd2848abcdf14d925de);
+            
+        
+
+        circle_marker_5528ef6d0bbee25366c3cd14d84e20df.bindPopup(popup_9d32570ff1d447fcd24dc1b5ec60fa26)
+        ;
+
+        
+    
+    
+            var circle_marker_fc77da4c7503887dd08b107f80c62be5 = L.circleMarker(
+                [20.967410896076036, 105.75287869772595],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_93c2076fd397eae18c0ef391d03d29ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_826cce7c07c6e246211dc07c7759b838 = $(`<div id="html_826cce7c07c6e246211dc07c7759b838" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C001<br>             <b>Time:</b> 2026-03-05 18:36:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_93c2076fd397eae18c0ef391d03d29ee.setContent(html_826cce7c07c6e246211dc07c7759b838);
+            
+        
+
+        circle_marker_fc77da4c7503887dd08b107f80c62be5.bindPopup(popup_93c2076fd397eae18c0ef391d03d29ee)
+        ;
+
+        
+    
+    
+            var circle_marker_12031c1eb29295eba02ed4903c49d1f1 = L.circleMarker(
+                [21.055548678907005, 105.9210921168022],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_bcb37e216d0d60d7469d6c36c6a64707 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5e881ca64780fda8a4cde4ff09592b5 = $(`<div id="html_e5e881ca64780fda8a4cde4ff09592b5" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-06 03:30:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_bcb37e216d0d60d7469d6c36c6a64707.setContent(html_e5e881ca64780fda8a4cde4ff09592b5);
+            
+        
+
+        circle_marker_12031c1eb29295eba02ed4903c49d1f1.bindPopup(popup_bcb37e216d0d60d7469d6c36c6a64707)
+        ;
+
+        
+    
+    
+            var circle_marker_e2a05f5d1b44277a073af2be30fcd87e = L.circleMarker(
+                [20.96467512409765, 105.84483476581747],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_1bc0448d0e282e22506462c3fce704b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e0ed6f647c3361383b02229e6c8a81b = $(`<div id="html_8e0ed6f647c3361383b02229e6c8a81b" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C005<br>             <b>Time:</b> 2026-03-06 20:53:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_1bc0448d0e282e22506462c3fce704b0.setContent(html_8e0ed6f647c3361383b02229e6c8a81b);
+            
+        
+
+        circle_marker_e2a05f5d1b44277a073af2be30fcd87e.bindPopup(popup_1bc0448d0e282e22506462c3fce704b0)
+        ;
+
+        
+    
+    
+            var circle_marker_540f930d0cc189812d978a66c8c8973a = L.circleMarker(
+                [21.015077747385696, 105.784640373982],
+                {"bubblingMouseEvents": true, "color": "#7c3aed", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7c3aed", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03);
+        
+    
+        var popup_f06710d3347703fd805d8a565649f6c7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77ace2de774b878558a608c314826c72 = $(`<div id="html_77ace2de774b878558a608c314826c72" style="width: 100.0%; height: 100.0%;">             <b>Customer:</b> C003<br>             <b>Time:</b> 2026-03-03 19:26:00<br>             <b>Time bin:</b> night<br>             <b>In mall:</b> 0<br>             <b>Mall:</b> -             </div>`)[0];
+                popup_f06710d3347703fd805d8a565649f6c7.setContent(html_77ace2de774b878558a608c314826c72);
+            
+        
+
+        circle_marker_540f930d0cc189812d978a66c8c8973a.bindPopup(popup_f06710d3347703fd805d8a565649f6c7)
+        ;
+
+        
+    
+    
+            marker_cluster_58e1ba0c9132e9c60c9aaca04c115b03.addTo(feature_group_94763bc07c684bc16143f9ac072ff9aa);
+        
+    
+            feature_group_94763bc07c684bc16143f9ac072ff9aa.addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+        
+    
+            var feature_group_a67accc533fb6ef97dc484b594f06eb9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_0b6757ee4861bfe535b879b81d10f8da = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            marker_cluster_0b6757ee4861bfe535b879b81d10f8da.addTo(feature_group_a67accc533fb6ef97dc484b594f06eb9);
+        
+    
+            var layer_control_4d10bf839eb33cecacf0feffd116e8cc_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_c22db22b96f4c1c245d1e00af52a973e,
+                },
+                overlays :  {
+                    "Mall Polygons" : geo_json_3c09e75e09a7a2a1c4dbc8074f2aefd7,
+                    "Logins - Morning" : feature_group_38f880d7941e3524523d5ea4cae83c9c,
+                    "Logins - Noon" : feature_group_dfc5a51115d32044c7860ff2b1d134be,
+                    "Logins - Afternoon" : feature_group_f4829e6a8d50a2d3ec5cb17c343dbe88,
+                    "Logins - Night" : feature_group_94763bc07c684bc16143f9ac072ff9aa,
+                    "Logins - Unknown" : feature_group_a67accc533fb6ef97dc484b594f06eb9,
+                },
+            };
+            let layer_control_4d10bf839eb33cecacf0feffd116e8cc = L.control.layers(
+                layer_control_4d10bf839eb33cecacf0feffd116e8cc_layers.base_layers,
+                layer_control_4d10bf839eb33cecacf0feffd116e8cc_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_ee07ef4dfb80f365b6b9a9369c9edf23);
+
+        
+</script>
+</html>
