@@ -1,0 +1,41 @@
+services:
+  - type: vllm
+    alias: qwen35-9b
+    s3_prefix: models/qwen3.5-9b
+    local_dir: /mnt/models/qwen3.5-9b
+    gpu_ids: [0, 1]
+    listen_port: 8001
+    health_path: /health
+    model_name: /mnt/models/qwen3.5-9b
+    vllm_args:
+      tensor_parallel_size: 2
+      max_model_len: 8192
+      gpu_memory_utilization: 0.92
+
+  - type: whisper
+    alias: whisper-large-v3
+    s3_prefix: models/faster-whisper-large-v3
+    local_dir: /mnt/models/faster-whisper-large-v3
+    gpu_ids: [2]
+    listen_port: 8002
+    health_path: /healthz
+    model_name: /mnt/models/faster-whisper-large-v3
+    whisper_args:
+      compute_type: float16
+      beam_size: 5
+      vad_filter: true
+
+  - type: bert_classification
+    alias: bert-seq-cls
+    s3_prefix: models/bert-seq-cls
+    local_dir: /mnt/models/bert-seq-cls
+    gpu_ids: [3]
+    listen_port: 8003
+    health_path: /healthz
+    model_name: /mnt/models/bert-seq-cls
+    bert_args:
+      max_length: 512
+      return_all_scores: false
+      labels:
+        - negative
+        - positive

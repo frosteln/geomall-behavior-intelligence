@@ -1,0 +1,6 @@
+model_list:
+  - model_name: qwen35-9b
+    litellm_params:
+      model: openai/qwen35-9b
+      api_base: http://qwen-vllm:8001/v1
+      api_key: not-needed

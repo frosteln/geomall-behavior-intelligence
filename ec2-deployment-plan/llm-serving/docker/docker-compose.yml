@@ -1,0 +1,113 @@
+services:
+  qwen-vllm:
+    image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8001"
+      - --model
+      - ${QWEN_MODEL_PATH}
+      - --tensor-parallel-size
+      - "2"
+      - --gpu-memory-utilization
+      - "0.92"
+      - --max-model-len
+      - "8192"
+    environment:
+      HUGGING_FACE_HUB_TOKEN: ${HUGGING_FACE_HUB_TOKEN:-}
+    volumes:
+      - ${MODEL_ROOT}:${MODEL_ROOT}:ro
+    ports:
+      - "8001:8001"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["0", "1"]
+
+  whisper-api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.whisper
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8002"
+      - --model-path
+      - ${WHISPER_MODEL_PATH}
+      - --compute-type
+      - ${WHISPER_COMPUTE_TYPE:-float16}
+      - --beam-size
+      - ${WHISPER_BEAM_SIZE:-5}
+      - --vad-filter
+    volumes:
+      - ${MODEL_ROOT}:${MODEL_ROOT}:ro
+    ports:
+      - "8002:8002"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["2"]
+
+  bert-classifier:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.bert
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8003"
+      - --model-path
+      - ${BERT_MODEL_PATH}
+      - --max-length
+      - ${BERT_MAX_LENGTH:-512}
+      - --labels-json
+      - ${BERT_LABELS_JSON}
+    volumes:
+      - ${MODEL_ROOT}:${MODEL_ROOT}:ro
+    ports:
+      - "8003:8003"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              device_ids: ["3"]
+
+  litellm:
+    image: ${LITELLM_IMAGE:-ghcr.io/berriai/litellm:main-stable}
+    command:
+      - --config
+      - /app/config.yaml
+      - --port
+      - "4000"
+      - --host
+      - 0.0.0.0
+    volumes:
+      - ./litellm.config.yaml:/app/config.yaml:ro
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+    ports:
+      - "4000:4000"
+    depends_on:
+      - qwen-vllm
+
+  open-webui:
+    image: ${OPENWEBUI_IMAGE:-ghcr.io/open-webui/open-webui:main}
+    environment:
+      WEBUI_SECRET_KEY: ${OPENWEBUI_SECRET}
+      OPENAI_API_BASE_URL: http://litellm:4000/v1
+      OPENAI_API_KEY: ${LITELLM_MASTER_KEY}
+    ports:
+      - "3000:8080"
+    depends_on:
+      - litellm

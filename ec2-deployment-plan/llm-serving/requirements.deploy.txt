@@ -1,0 +1,12 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.0
+PyYAML==6.0.2
+transformers==4.49.0
+torch==2.6.0
+accelerate==1.4.0
+faster-whisper==1.1.1
+python-multipart==0.0.20
+boto3==1.37.11
+vllm==0.8.3
+litellm==1.63.11
+open-webui==0.6.5

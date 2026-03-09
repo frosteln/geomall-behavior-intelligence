@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM Serving Cost Report</title>
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --paper: #fffaf0;
+      --ink: #1e1c18;
+      --muted: #6a655c;
+      --line: rgba(30, 28, 24, 0.1);
+      --card-1: #f6c96c;
+      --card-2: #d5ead7;
+      --card-3: #c7d7f7;
+      --card-4: #f3d2c1;
+      --card-5: #ead7f5;
+      --shadow: 0 18px 60px rgba(31, 25, 16, 0.12);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-rounded, "SF Pro Rounded", "Avenir Next", "Trebuchet MS", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(246, 201, 108, 0.35), transparent 28%),
+        radial-gradient(circle at top right, rgba(199, 215, 247, 0.35), transparent 24%),
+        linear-gradient(180deg, #f8f1e6 0%, #f4ede1 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 250, 240, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .hero svg {
+      position: absolute;
+      right: -20px;
+      top: -10px;
+      width: min(38vw, 460px);
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      background: var(--paper);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card h2, .card h3 {
+      margin: 0 0 10px;
+      line-height: 1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .span-8 { grid-column: span 8; }
+    .span-4 { grid-column: span 4; }
+    .span-6 { grid-column: span 6; }
+    .span-12 { grid-column: span 12; }
+
+    .tone-1 { background: linear-gradient(180deg, #fff4d5, #fffaf0); }
+    .tone-2 { background: linear-gradient(180deg, #e7f6e8, #fffaf0); }
+    .tone-3 { background: linear-gradient(180deg, #e8efff, #fffaf0); }
+    .tone-4 { background: linear-gradient(180deg, #fde9de, #fffaf0); }
+    .tone-5 { background: linear-gradient(180deg, #f5eaff, #fffaf0); }
+
+    .stat {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 18px 0 8px;
+    }
+
+    .stat strong {
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(30, 28, 24, 0.08);
+      font-size: 0.86rem;
+      color: var(--ink);
+    }
+
+    .scenario-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .scenario {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .scenario h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .scenario ul, .checklist ul {
+      padding-left: 18px;
+      color: var(--muted);
+      margin: 12px 0 0;
+      line-height: 1.45;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+
+    .table th, .table td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .table th {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .curve {
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 220px;
+      height: 220px;
+      opacity: 0.25;
+    }
+
+    .foot {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 960px) {
+      .span-8, .span-6, .span-4, .span-12 { grid-column: span 12; }
+      .scenario-list { grid-template-columns: 1fr; }
+      .hero svg { position: static; width: 100%; margin-top: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <span class="pill">March 9, 2026 • ap-southeast-1 (Singapore) • 8h/day • 5d/week</span>
+      <h1>Cost Checklist for the Qwen + Whisper + BERT serving stack</h1>
+      <p>
+        On-Demand numbers use the AWS public EC2 price list for Linux shared tenancy in
+        <code>ap-southeast-1</code>. This version assumes the stack runs only during business hours:
+        <code>8 hours/day</code>, <code>5 days/week</code>. Spot pricing still uses planning bands rather than a fake fixed quote.
+      </p>
+      <svg viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M23 196C86 104 159 81 233 110C304 138 346 216 431 210C455 208 473 199 488 186" stroke="#1E1C18" stroke-width="4" stroke-linecap="round"/>
+        <path d="M21 220C102 149 175 142 240 172C303 200 353 250 434 245C456 244 474 237 489 224" stroke="#F6C96C" stroke-width="18" stroke-linecap="round"/>
+        <circle cx="108" cy="126" r="20" fill="#D5EAD7"/>
+        <circle cx="332" cy="136" r="32" fill="#C7D7F7"/>
+        <circle cx="420" cy="230" r="16" fill="#F3D2C1"/>
+      </svg>
+    </section>
+
+    <div class="grid">
+      <section class="card span-4 tone-1">
+        <h2>4 GPU baseline</h2>
+        <p>Recommended single-instance production layout on one <code>g4dn.12xlarge</code>.</p>
+        <div class="stat"><strong>$948.83</strong><span>/month</span></div>
+        <p>$43.79/day • $218.96/week • $5.474/hour • full 4 GPU mixed-runtime stack.</p>
+        <svg class="curve" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 130C80 70 110 40 200 54" stroke="#1E1C18" stroke-width="3" stroke-linecap="round"/>
+          <path d="M20 150C78 92 116 72 204 84" stroke="#F6C96C" stroke-width="14" stroke-linecap="round"/>
+        </svg>
+      </section>
+
+      <section class="card span-4 tone-2">
+        <h2>1 GPU reference</h2>
+        <p>Cheapest GPU entry point using one <code>g4dn.xlarge</code>.</p>
+        <div class="stat"><strong>$127.57</strong><span>/month</span></div>
+        <p>$5.89/day • $29.44/week • $0.736/hour • good for one GPU service at a time.</p>
+      </section>
+
+      <section class="card span-4 tone-3">
+        <h2>8 GPU scale-out</h2>
+        <p>Two <code>g4dn.12xlarge</code> instances behind one ALB.</p>
+        <div class="stat"><strong>$1,897.65</strong><span>/month</span></div>
+        <p>$87.58/day • $437.92/week • $10.948/hour • two 4-GPU nodes behind one ALB.</p>
+      </section>
+
+      <section class="card span-8 tone-4">
+        <h2>Spot planning bands</h2>
+        <p>Spot pricing is variable. The numbers below are business-hours estimates for <code>8h/day</code> and <code>5d/week</code>. Keep a relaunch plan because Spot can be interrupted.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>30% off</th>
+              <th>50% off</th>
+              <th>60% off</th>
+              <th>70% off</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 x g4dn.12xlarge</td>
+              <td>$30.65/day<br>$153.27/week<br>$664.18/mo</td>
+              <td>$21.90/day<br>$109.48/week<br>$474.41/mo</td>
+              <td>$17.52/day<br>$87.58/week<br>$379.53/mo</td>
+              <td>$13.14/day<br>$65.69/week<br>$284.65/mo</td>
+            </tr>
+            <tr>
+              <td>1 x g4dn.xlarge</td>
+              <td>$4.12/day<br>$20.61/week<br>$89.30/mo</td>
+              <td>$2.94/day<br>$14.72/week<br>$63.79/mo</td>
+              <td>$2.36/day<br>$11.78/week<br>$51.03/mo</td>
+              <td>$1.77/day<br>$8.83/week<br>$38.27/mo</td>
+            </tr>
+            <tr>
+              <td>2 x g4dn.12xlarge</td>
+              <td>$61.31/day<br>$306.54/week<br>$1,328.36/mo</td>
+              <td>$43.79/day<br>$218.96/week<br>$948.83/mo</td>
+              <td>$35.03/day<br>$175.17/week<br>$759.06/mo</td>
+              <td>$26.28/day<br>$131.38/week<br>$569.30/mo</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="foot">
+          Business-hours scheduling changes the economics a lot. A full 4 GPU on-demand stack in Singapore is about $948.83/month at 8h/day, versus $3,996.02/month if you leave it on 24/7.
+        </div>
+      </section>
+
+      <section class="card span-4 tone-5 checklist">
+        <h2>Hidden cost checklist</h2>
+        <ul>
+          <li><strong>ALB:</strong> AWS public pricing examples show <code>$0.0225/hour</code> plus <code>$0.008 per LCU-hour</code>. Fixed fee only is about <code>$3.90/month</code> at your 8h/day schedule, or <code>$16.43/month</code> if left on.</li>
+          <li><strong>EBS gp3:</strong> AWS public pricing examples show <code>$0.08 per GB-month</code> plus optional charges above baseline for extra IOPS and throughput. A <code>100 GB</code> root disk is roughly <code>$8/month</code> at that reference rate.</li>
+          <li><strong>S3:</strong> AWS documents that same-Region <code>EC2 ↔ S3</code> transfer is free, and the first <code>100 GB/month</code> of internet data transfer out is free across AWS services.</li>
+          <li><strong>S3 Singapore reference:</strong> AWS public announcements list <code>S3 Standard-IA</code> in <code>Asia Pacific (Singapore)</code> at <code>$0.0138 per GB-month</code>.</li>
+          <li><strong>Approval note:</strong> verify the exact live Singapore <code>S3 Standard</code> storage and request-tier pricing in the AWS Pricing Calculator before sign-off.</li>
+          <li>Internet egress and cross-AZ data transfer</li>
+          <li>Public IPv4 charges</li>
+          <li>CloudWatch logs and retention</li>
+          <li>DNS hosted zone and query costs</li>
+        </ul>
+      </section>
+
+      <section class="card span-12 tone-2">
+        <h2>Scenario fit</h2>
+        <div class="scenario-list">
+          <article class="scenario">
+            <h3>Normal instance</h3>
+            <p>Use one <code>g4dn.12xlarge</code> when you need the full stack and stable uptime. Business-hours cost is $43.79/day and $218.96/week.</p>
+          </article>
+          <article class="scenario">
+            <h3>Spot instance</h3>
+            <p>Best when cost matters more than stability and you can relaunch or recover after interruption. Treat the price as a moving band, not a constant.</p>
+          </article>
+          <article class="scenario">
+            <h3>1 GPU scenario</h3>
+            <p>Only practical for Whisper-only, BERT-only, or a narrow prototype. It is not enough for the complete revised topology, but it is inexpensive at $5.89/day.</p>
+          </article>
+          <article class="scenario">
+            <h3>8 GPU scenario</h3>
+            <p>Use two 4-GPU nodes when you need active/active throughput, blue/green upgrades, or workload separation. Business-hours cost is $87.58/day and $437.92/week.</p>
+          </article>
+        </div>
+        <div class="foot">
+          Source links: AWS public EC2 pricing JSON, AWS G4 family page, and AWS Spot documentation. Refresh the numbers before purchase approval because AWS pricing and Spot availability can change. Always-on monthly comparison: 1 x <code>g4dn.12xlarge</code> = $3,996.02/month, 1 x <code>g4dn.xlarge</code> = $537.28/month, 2 x <code>g4dn.12xlarge</code> = $7,992.04/month.
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

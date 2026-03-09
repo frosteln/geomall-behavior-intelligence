@@ -1,0 +1,10 @@
+FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3 python3-pip && rm -rf /var/lib/apt/lists/*
+RUN python3 -m pip install --no-cache-dir fastapi uvicorn[standard] transformers torch accelerate
+
+WORKDIR /app
+COPY services /app/services
+
+ENTRYPOINT ["python3", "/app/services/bert_classifier_api.py"]
