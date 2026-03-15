@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCR Options for Vietnamese Banking Documents</title>
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card: rgba(255,255,255,0.84);
+      --card-strong: rgba(255,255,255,0.94);
+      --text: #111114;
+      --muted: #5d6470;
+      --line: rgba(17,17,20,0.08);
+      --blue: #0a84ff;
+      --green: #1f9d55;
+      --orange: #ff9f0a;
+      --red: #ff453a;
+      --purple: #7c4dff;
+      --shadow: 0 12px 40px rgba(17,17,20,0.08);
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(10,132,255,0.08), transparent 28%),
+        radial-gradient(circle at top right, rgba(124,77,255,0.08), transparent 24%),
+        linear-gradient(180deg, #fbfbfd 0%, var(--bg) 100%);
+    }
+    .wrap {
+      width: min(1400px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+    .slide {
+      min-height: 100vh;
+      padding: 16px 0 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      page-break-after: always;
+    }
+    .topline {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    h1,h2,h3,p { margin: 0; }
+    h1 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      margin-bottom: 16px;
+    }
+    h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .lead {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--muted);
+      max-width: 980px;
+    }
+    .grid { display: grid; gap: 18px; margin-top: 22px; }
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.7);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .card.strong { background: var(--card-strong); }
+    .accent-blue::before, .accent-green::before, .accent-orange::before, .accent-red::before, .accent-purple::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; width: 100%; height: 4px;
+      opacity: 0.92;
+    }
+    .accent-blue::before { background: linear-gradient(90deg, var(--blue), #6ab7ff); }
+    .accent-green::before { background: linear-gradient(90deg, var(--green), #7ad9a4); }
+    .accent-orange::before { background: linear-gradient(90deg, var(--orange), #ffd36a); }
+    .accent-red::before { background: linear-gradient(90deg, var(--red), #ff8c85); }
+    .accent-purple::before { background: linear-gradient(90deg, var(--purple), #b493ff); }
+    .metric { font-size: clamp(32px, 4vw, 54px); font-weight: 800; letter-spacing: -0.05em; margin-bottom: 6px; }
+    .big-number { font-size: 42px; font-weight: 800; letter-spacing: -0.05em; }
+    .kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .body { font-size: 15px; line-height: 1.6; color: #1a1d23; }
+    .small { font-size: 13px; line-height: 1.45; color: var(--muted); }
+    .list { margin: 10px 0 0; padding-left: 18px; }
+    .list li { margin: 5px 0; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; margin-top: 20px; }
+    .mini { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+    .mini .card { padding: 18px; border-radius: 22px; }
+    .tagrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .tag {
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.58);
+      color: #2d3440;
+      font-weight: 600;
+    }
+    .section-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; margin-top: 22px; }
+    .scoreboard { display: grid; gap: 12px; margin-top: 4px; }
+    .score-row { display: grid; grid-template-columns: 1.2fr 2fr auto; gap: 10px; align-items: center; }
+    .bar { height: 10px; border-radius: 999px; background: rgba(17,17,20,0.08); overflow: hidden; }
+    .fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--blue), var(--purple)); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.42);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      background: rgba(255,255,255,0.58);
+    }
+    tr:last-child td { border-bottom: none; }
+    .rank {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 999px; font-size: 13px; font-weight: 800;
+      background: rgba(17,17,20,0.08);
+    }
+    .pill-good, .pill-mid, .pill-risk {
+      display: inline-block; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;
+    }
+    .pill-good { background: rgba(31,157,85,0.12); color: #156f3d; }
+    .pill-mid { background: rgba(255,159,10,0.14); color: #9a5b00; }
+    .pill-risk { background: rgba(255,69,58,0.12); color: #a1221a; }
+    .footer-note { margin-top: 16px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+    .decision { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
+    .quote { font-size: 24px; line-height: 1.25; letter-spacing: -0.03em; max-width: 920px; margin-top: 14px; }
+    @media (max-width: 1024px) {
+      .hero, .section-split, .decision, .cols-4, .cols-3, .cols-2 { grid-template-columns: 1fr; }
+      .score-row { grid-template-columns: 1fr; }
+      .wrap { width: min(100vw - 24px, 1400px); }
+      .slide { min-height: auto; }
+    }
+    @media print {
+      body { background: white; }
+      .slide { min-height: auto; padding: 10mm 0; }
+      .card { box-shadow: none; backdrop-filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <section class="slide">
+      <div class="topline">OCR strategy review • Vietnamese banking documents • March 2026</div>
+      <div class="hero">
+        <div class="card strong accent-blue">
+          <div class="kicker">Executive recommendation</div>
+          <h1>Choose Claude<br/>Haiku 4.5 first.</h1>
+          <p class="lead">
+            For scanned Vietnamese banking files with many layouts, batch spikes, and structured Excel-style output,
+            Haiku is the best phase-1 choice. It gets to production fastest with the lowest ops burden.
+            Hunyuan OCR is the best self-host hedge.
+          </p>
+          <div class="tagrow">
+            <div class="tag">#1 Haiku</div>
+            <div class="tag">#2 Hunyuan OCR</div>
+            <div class="tag">#3 Databricks AI Parse</div>
+            <div class="tag">#4 Qwen3-VL 4B/8B</div>
+            <div class="tag">#5 Tesseract</div>
+          </div>
+        </div>
+        <div class="card accent-purple">
+          <div class="kicker">Workload frame</div>
+          <div class="metric">800</div>
+          <div class="body">pages per pack</div>
+          <div class="mini">
+            <div class="card strong">
+              <div class="big-number">8,000</div>
+              <div class="small">pages/day max</div>
+            </div>
+            <div class="card strong">
+              <div class="big-number">176k</div>
+              <div class="small">pages/month</div>
+            </div>
+          </div>
+          <div class="footer-note">Assumption: 20 PDFs × 40 pages, up to 10 morning pushes.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Decision criteria</div>
+      <h2>What matters most in this use case</h2>
+      <div class="grid cols-4">
+        <div class="card accent-blue">
+          <div class="metric">1</div>
+          <h3>Vietnamese scan quality</h3>
+          <p class="body">Diacritics, blur, skew, stamps, and photocopy noise.</p>
+        </div>
+        <div class="card accent-green">
+          <div class="metric">2</div>
+          <h3>Multi-layout resilience</h3>
+          <p class="body">Should handle many banking formats without template sprawl.</p>
+        </div>
+        <div class="card accent-orange">
+          <div class="metric">3</div>
+          <h3>Structured extraction</h3>
+          <p class="body">Needs usable fields, tables, and rows for Excel output.</p>
+        </div>
+        <div class="card accent-purple">
+          <div class="metric">4</div>
+          <h3>Operational simplicity</h3>
+          <p class="body">Morning spikes need queueing, retries, monitoring, and predictable cost.</p>
+        </div>
+      </div>
+      <div class="section-split">
+        <div class="card accent-blue">
+          <div class="kicker">Criteria weights</div>
+          <div class="scoreboard">
+            <div class="score-row"><div>Accuracy on Vietnamese scans</div><div class="bar"><div class="fill" style="width: 30%"></div></div><div>30%</div></div>
+            <div class="score-row"><div>Structured extraction quality</div><div class="bar"><div class="fill" style="width: 20%"></div></div><div>20%</div></div>
+            <div class="score-row"><div>Throughput / latency</div><div class="bar"><div class="fill" style="width: 15%"></div></div><div>15%</div></div>
+            <div class="score-row"><div>Cost efficiency</div><div class="bar"><div class="fill" style="width: 15%"></div></div><div>15%</div></div>
+            <div class="score-row"><div>Ops burden</div><div class="bar"><div class="fill" style="width: 10%"></div></div><div>10%</div></div>
+            <div class="score-row"><div>Time to production</div><div class="bar"><div class="fill" style="width: 5%"></div></div><div>5%</div></div>
+            <div class="score-row"><div>Control / customizability</div><div class="bar"><div class="fill" style="width: 5%"></div></div><div>5%</div></div>
+          </div>
+        </div>
+        <div class="card strong accent-purple">
+          <div class="kicker">Weighted ranking</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Option</th>
+                <th>Score</th>
+                <th>Takeaway</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="rank">1</span></td><td><strong>Claude Haiku 4.5 API</strong></td><td><strong>87.0</strong></td><td><span class="pill-good">Best first production choice</span></td></tr>
+              <tr><td><span class="rank">2</span></td><td><strong>Hunyuan OCR self-host</strong></td><td><strong>81.5</strong></td><td><span class="pill-good">Best self-host hedge</span></td></tr>
+              <tr><td><span class="rank">3</span></td><td><strong>Databricks AI Parse</strong></td><td><strong>73.5</strong></td><td><span class="pill-mid">Convenient but risky</span></td></tr>
+              <tr><td><span class="rank">4</span></td><td><strong>Qwen3-VL 4B/8B</strong></td><td><strong>66.0</strong></td><td><span class="pill-mid">General VLM, not OCR-first</span></td></tr>
+              <tr><td><span class="rank">5</span></td><td><strong>Tesseract</strong></td><td><strong>54.0</strong></td><td><span class="pill-risk">Baseline only</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Compare table</div>
+      <h2>Fast side-by-side view</h2>
+      <div class="card strong accent-blue">
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Best strength</th>
+              <th>Main weakness</th>
+              <th>Ops model</th>
+              <th>Cost shape</th>
+              <th>Best role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude Haiku 4.5</strong></td>
+              <td>Fastest time-to-value and strong structured extraction</td>
+              <td>External API dependency and token-cost discipline</td>
+              <td>Managed API</td>
+              <td>Usage-based, but low ops</td>
+              <td>Primary recommendation</td>
+            </tr>
+            <tr>
+              <td><strong>Hunyuan OCR</strong></td>
+              <td>OCR-specialized self-host option</td>
+              <td>Needs MLOps, serving, scaling, monitoring</td>
+              <td>Self-host GPU</td>
+              <td>Infra + people cost</td>
+              <td>Best self-host hedge</td>
+            </tr>
+            <tr>
+              <td><strong>Databricks AI Parse</strong></td>
+              <td>Easy fit with Databricks pipelines</td>
+              <td>English-tuned caveat for Vietnamese scans</td>
+              <td>Managed in platform</td>
+              <td>Per-1k-page pricing</td>
+              <td>Convenience pilot</td>
+            </tr>
+            <tr>
+              <td><strong>Qwen3-VL 4B/8B</strong></td>
+              <td>Flexible multimodal platform</td>
+              <td>Less OCR-specialized, more infra work</td>
+              <td>Self-host GPU</td>
+              <td>GPU cost rises with scale</td>
+              <td>Broader platform play</td>
+            </tr>
+            <tr>
+              <td><strong>Tesseract</strong></td>
+              <td>Free and mature baseline</td>
+              <td>Weakest on scanned multi-layout banking docs</td>
+              <td>Self-host CPU/GPU helper</td>
+              <td>Cheap software, expensive cleanup</td>
+              <td>Baseline / fallback</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card strong accent-purple" style="margin-top:18px;">
+        <div class="kicker">Cost and speed comparison</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Speed signal</th>
+              <th>Cost signal</th>
+              <th>Estimated monthly cost at 176k pages</th>
+              <th>Read for decision</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude Haiku 4.5</strong></td>
+              <td>High practical throughput with batch API flow</td>
+              <td>Token-based</td>
+              <td><strong>~$340–$1,115</strong><br/><span class="small">depends on image tokenization, output length, and batch discount usage</span></td>
+              <td>Fast to ship, cost stays reasonable if output is tight</td>
+            </tr>
+            <tr>
+              <td><strong>Hunyuan OCR</strong></td>
+              <td>Potentially high, but depends on chosen GPU and serving stack</td>
+              <td>GPU infra + DevOps</td>
+              <td><strong>~$800–$2,500+</strong><br/><span class="small">infra-led estimate, excluding engineering headcount</span></td>
+              <td>Can be efficient at scale, but only if you want to own ops</td>
+            </tr>
+            <tr>
+              <td><strong>Databricks AI Parse</strong></td>
+              <td>Managed batch workflow, no public OCR pages/sec benchmark</td>
+              <td>Per 1k pages</td>
+              <td><strong>~$123–$1,109</strong><br/><span class="small">based on Databricks low / medium / high complexity bands</span></td>
+              <td>Simple cost model, but language-fit risk matters more than price</td>
+            </tr>
+            <tr>
+              <td><strong>Qwen3-VL 4B/8B</strong></td>
+              <td>Moderate to high depending on g5 sizing and concurrency</td>
+              <td>GPU infra + DevOps</td>
+              <td><strong>~$1,100–$3,000+</strong><br/><span class="small">single to multi-instance g5-style deployment, excluding engineering headcount</span></td>
+              <td>More expensive than it looks once you include ops and reliability work</td>
+            </tr>
+            <tr>
+              <td><strong>Tesseract</strong></td>
+              <td>Can be fast, but quality cleanup drags end-to-end throughput</td>
+              <td>Mostly engineering time</td>
+              <td><strong>Low software cost</strong><br/><span class="small">but hidden cost from preprocessing, rules, QA, and rework</span></td>
+              <td>Cheap baseline, poor choice for all-in-one production OCR</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="footer-note">Monthly volume assumption: 176k pages. Self-host ranges are directional infrastructure estimates, not full loaded cost. Tesseract is shown qualitatively because labor dominates total cost.</div>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card accent-green">
+          <div class="kicker">Why Haiku wins</div>
+          <ul class="list">
+            <li>Best balance of quality, speed, and ops simplicity.</li>
+            <li>Fits OCR + extraction + normalization in one flow.</li>
+            <li>Strongest option for a fast production launch.</li>
+          </ul>
+        </div>
+        <div class="card accent-purple">
+          <div class="kicker">Why Hunyuan matters</div>
+          <ul class="list">
+            <li>Most credible self-host OCR path.</li>
+            <li>Better fit than generic VLMs for OCR-first work.</li>
+            <li>Useful if security or lock-in pushes against APIs.</li>
+          </ul>
+        </div>
+        <div class="card accent-orange">
+          <div class="kicker">Where others fit</div>
+          <ul class="list">
+            <li>Databricks: easiest pilot if your flow is already there.</li>
+            <li>Qwen: reusable multimodal platform, not the sharpest OCR tool.</li>
+            <li>Tesseract: benchmark baseline only.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Recommendation</div>
+      <h2>Simple decision path for management</h2>
+      <div class="decision">
+        <div class="card strong accent-blue">
+          <div class="kicker">Phase 1</div>
+          <h3>Ship with Claude Haiku 4.5</h3>
+          <p class="body">Use it to prove end-to-end OCR, extraction, Excel output, confidence scoring, and batch operations quickly.</p>
+        </div>
+        <div class="card strong accent-green">
+          <div class="kicker">Phase 2</div>
+          <h3>Run Hunyuan OCR bake-off</h3>
+          <p class="body">Compare on the same Vietnamese banking sample set for field accuracy, exception rate, and all-in cost.</p>
+        </div>
+        <div class="card strong accent-orange">
+          <div class="kicker">Keep in reserve</div>
+          <h3>Use Databricks or Qwen only with a clear reason</h3>
+          <p class="body">Databricks for platform convenience. Qwen for broader multimodal reuse. Neither is the first OCR pick here.</p>
+        </div>
+      </div>
+      <div class="quote">“The best first answer is the option that gets reliable structured output into production fastest, with acceptable accuracy and the least operational drag.”</div>
+    </section>
+
+  </div>
+</body>
+</html>
